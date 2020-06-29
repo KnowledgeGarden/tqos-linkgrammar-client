@@ -1,0 +1,205 @@
+Sentence
+The pandemic of obesity, type 2 diabetes mellitus (T2DM) and nonalcoholic fatty liver disease (NAFLD) has frequently been associated with dietary intake of saturated fats (1) and specifically with dietary palm oil (PO) (2).
+
+RAW
+[LEFT-WALL] 
+[{"leftLabel":"Xp","left":0,"label":"Xp","right":46,"rightLabel":"Xp"}, {"leftLabel":"Xx","left":0,"label":"Xx","right":5,"rightLabel":"Xx"}, {"leftLabel":"hWa","left":0,"label":"Wa","right":2,"rightLabel":"Wa"}, {"leftLabel":"Xx","left":0,"label":"Xx","right":13,"rightLabel":"Xx"}, {"leftLabel":"hWV","left":0,"label":"WV","right":24,"rightLabel":"dWV"}, {"leftLabel":"hWd","left":0,"label":"Wd","right":13,"rightLabel":"Wd"}]
+
+[the] 
+[{"leftLabel":"D","left":1,"label":"Ds","right":2,"rightLabel":"Ds"}, {"leftLabel":"D","left":1,"label":"Ds**c","right":2,"rightLabel":"Ds**c"}]
+
+[pandemic.n] 
+[{"leftLabel":"hWa","left":0,"label":"Wa","right":2,"rightLabel":"Wa"}, {"leftLabel":"D","left":1,"label":"Ds","right":2,"rightLabel":"Ds"}, {"leftLabel":"Mf","left":2,"label":"Mf","right":3,"rightLabel":"Mf"}, {"leftLabel":"SJls","left":2,"label":"SJls","right":13,"rightLabel":"SJls"}, {"leftLabel":"D","left":1,"label":"Ds**c","right":2,"rightLabel":"Ds**c"}, {"leftLabel":"M","left":2,"label":"Mp","right":3,"rightLabel":"Mp"}, {"leftLabel":"M","left":2,"label":"Mf","right":3,"rightLabel":"Mf"}]
+
+[of] 
+[{"leftLabel":"Mf","left":2,"label":"Mf","right":3,"rightLabel":"Mf"}, {"leftLabel":"Jp","left":3,"label":"Jp","right":4,"rightLabel":"Jp"}, {"leftLabel":"M","left":2,"label":"Mp","right":3,"rightLabel":"Mp"}, {"leftLabel":"M","left":2,"label":"Mf","right":3,"rightLabel":"Mf"}]
+
+[obesity.n-u] 
+[{"leftLabel":"Jp","left":3,"label":"Jp","right":4,"rightLabel":"Jp"}, {"leftLabel":"MXs","left":4,"label":"MXs","right":9,"rightLabel":"MX"}]
+
+[,] 
+[{"leftLabel":"Xx","left":0,"label":"Xx","right":5,"rightLabel":"Xx"}, {"leftLabel":"Xx","left":5,"label":"Xx","right":13,"rightLabel":"Xx"}, {"leftLabel":"hWi","left":5,"label":"Wi","right":6,"rightLabel":"Wi"}, {"leftLabel":"Xd","left":5,"label":"Xd","right":9,"rightLabel":"Xd"}]
+
+[type.v] 
+[{"leftLabel":"hWi","left":5,"label":"Wi","right":6,"rightLabel":"Wi"}, 
+ {"leftLabel":"O","left":6,"label":"Os","right":9,"rightLabel":"Os"}, 
+ {"leftLabel":"NM","left":6,"label":"NMn","right":7,"rightLabel":"NMn"}, 
+ {"leftLabel":"AN","left":6,"label":"AN","right":9,"rightLabel":"AN"}, 
+ {"leftLabel":"AN","left":6,"label":"AN","right":8,"rightLabel":"AN"}]
+
+[2] 
+[{"leftLabel":"NM","left":6,"label":"NMn","right":7,"rightLabel":"NMn"}, {"leftLabel":"AN","left":7,"label":"AN","right":9,"rightLabel":"AN"}, {"leftLabel":"AN","left":7,"label":"AN","right":8,"rightLabel":"AN"}]
+
+[diabetes.n-u] 
+[{"leftLabel":"AN","left":8,"label":"AN","right":9,"rightLabel":"AN"}, {"leftLabel":"AN","left":6,"label":"AN","right":8,"rightLabel":"AN"}, {"leftLabel":"AN","left":7,"label":"AN","right":8,"rightLabel":"AN"}]
+
+[mellitus[!<LATIN-ADJ-WORDS>].a] 
+[{"leftLabel":"O","left":6,"label":"Os","right":9,"rightLabel":"Os"}, {"leftLabel":"AN","left":8,"label":"AN","right":9,"rightLabel":"AN"}, {"leftLabel":"MXs","left":9,"label":"MXs","right":11,"rightLabel":"MX"}, {"leftLabel":"MXs","left":4,"label":"MXs","right":9,"rightLabel":"MX"}, {"leftLabel":"Xd","left":5,"label":"Xd","right":9,"rightLabel":"Xd"}, {"leftLabel":"AN","left":6,"label":"AN","right":9,"rightLabel":"AN"}, {"leftLabel":"AN","left":7,"label":"AN","right":9,"rightLabel":"AN"}, {"leftLabel":"Xc","left":9,"label":"Xcp","right":12,"rightLabel":"dXcp"}]
+
+[(] 
+[{"leftLabel":"dXdp","left":10,"label":"Xdp","right":11,"rightLabel":"Xd"}]
+
+[T2DM[!<CAPITALIZED-WORDS>]] 
+[{"leftLabel":"MXs","left":9,"label":"MXs","right":11,"rightLabel":"MX"}, {"leftLabel":"dXdp","left":10,"label":"Xdp","right":11,"rightLabel":"Xd"}, {"leftLabel":"Xc","left":11,"label":"Xcp","right":12,"rightLabel":"dXcp"}, {"leftLabel":"Xc","left":11,"label":"Xca","right":12,"rightLabel":"Xca"}]
+
+[)] 
+[{"leftLabel":"Xc","left":11,"label":"Xcp","right":12,"rightLabel":"dXcp"}, {"leftLabel":"Xc","left":9,"label":"Xcp","right":12,"rightLabel":"dXcp"}, {"leftLabel":"Xc","left":11,"label":"Xca","right":12,"rightLabel":"Xca"}]
+
+[and.ij] 
+[{"leftLabel":"Xx","left":5,"label":"Xx","right":13,"rightLabel":"Xx"}, {"leftLabel":"hWV","left":13,"label":"WV","right":24,"rightLabel":"dWV"}, {"leftLabel":"Wdc","left":13,"label":"Wdc","right":17,"rightLabel":"Wd"}, {"leftLabel":"Xx","left":0,"label":"Xx","right":13,"rightLabel":"Xx"}, {"leftLabel":"hWd","left":0,"label":"Wd","right":13,"rightLabel":"Wd"}, {"leftLabel":"Spx","left":13,"label":"Spx","right":24,"rightLabel":"S"}, {"leftLabel":"SJls","left":2,"label":"SJls","right":13,"rightLabel":"SJls"}, {"leftLabel":"Bs","left":13,"label":"Bs*t","right":23,"rightLabel":"B**t"}, {"leftLabel":"R","left":13,"label":"Rn","right":17,"rightLabel":"Rn"}, {"leftLabel":"SJrs","left":13,"label":"SJrs","right":16,"rightLabel":"SJrs"}, {"leftLabel":"Sux","left":13,"label":"Sux","right":24,"rightLabel":"S"}, {"leftLabel":"B","left":13,"label":"B**t","right":23,"rightLabel":"B**t"}, {"leftLabel":"SJru","left":13,"label":"SJru","right":16,"rightLabel":"SJru"}]
+
+14 [nonalcoholic[!<ADJ-WORDS>].a] 
+[{"leftLabel":"A","left":14,"label":"A","right":16,"rightLabel":"A"}, 
+	This one links to liver
+ {"leftLabel":"A","left":14,"label":"A","right":17,"rightLabel":"A"}]
+ 	This one correctly links to disease - the entire phrase
+
+15 [fatty.a] 
+[{"leftLabel":"A","left":15,"label":"A","right":16,"rightLabel":"A"}, {"leftLabel":"A","left":15,"label":"A","right":17,"rightLabel":"A"}]
+
+16 [liver.n-u] 
+[{"leftLabel":"AN","left":16,"label":"AN","right":17,"rightLabel":"AN"}, 
+ {"leftLabel":"A","left":14,"label":"A","right":16,"rightLabel":"A"}, 
+ {"leftLabel":"A","left":15,"label":"A","right":16,"rightLabel":"A"}, 
+ {"leftLabel":"SJrs","left":13,"label":"SJrs","right":16,"rightLabel":"SJrs"}, 
+ {"leftLabel":"SJru","left":13,"label":"SJru","right":16,"rightLabel":"SJru"}]
+
+17 [disease.n-u] 
+[{"leftLabel":"Wdc","left":13,"label":"Wdc","right":17,"rightLabel":"Wd"}, 
+ {"leftLabel":"AN","left":16,"label":"AN","right":17,"rightLabel":"AN"}, 
+ {"leftLabel":"Ss","left":17,"label":"Ss","right":21,"rightLabel":"Ss"}, 
+ {"leftLabel":"MXs","left":17,"label":"MXs","right":19,"rightLabel":"MX"}, 
+ {"leftLabel":"A","left":14,"label":"A","right":17,"rightLabel":"A"}, 
+ {"leftLabel":"A","left":15,"label":"A","right":17,"rightLabel":"A"}, 
+ {"leftLabel":"R","left":13,"label":"Rn","right":17,"rightLabel":"Rn"}]
+
+[(] 
+[{"leftLabel":"dXdp","left":18,"label":"Xdp","right":19,"rightLabel":"Xd"}]
+
+[NAFLD[!<ALL-UPPER>]] 
+[{"leftLabel":"MXs","left":17,"label":"MXs","right":19,"rightLabel":"MX"}, {"leftLabel":"dXdp","left":18,"label":"Xdp","right":19,"rightLabel":"Xd"}, {"leftLabel":"Xc","left":19,"label":"Xcp","right":20,"rightLabel":"dXcp"}]
+
+[)] 
+[{"leftLabel":"Xc","left":19,"label":"Xcp","right":20,"rightLabel":"dXcp"}]
+
+[has.v] 
+[{"leftLabel":"Ss","left":17,"label":"Ss","right":21,"rightLabel":"Ss"}, {"leftLabel":"PP","left":21,"label":"PPf","right":23,"rightLabel":"PPf"}]
+
+[frequently] 
+[{"leftLabel":"Em","left":22,"label":"Em","right":23,"rightLabel":"E"}]
+
+[been.v] 
+[{"leftLabel":"PP","left":21,"label":"PPf","right":23,"rightLabel":"PPf"}, {"leftLabel":"Pv","left":23,"label":"Pv","right":24,"rightLabel":"Pv"}, {"leftLabel":"Em","left":22,"label":"Em","right":23,"rightLabel":"E"}, {"leftLabel":"Bs","left":13,"label":"Bs*t","right":23,"rightLabel":"B**t"}, {"leftLabel":"B","left":13,"label":"B**t","right":23,"rightLabel":"B**t"}]
+
+[associated.v-d] 
+[{"leftLabel":"hWV","left":13,"label":"WV","right":24,"rightLabel":"dWV"}, {"leftLabel":"Pv","left":23,"label":"Pv","right":24,"rightLabel":"Pv"}, {"leftLabel":"MV","left":24,"label":"MVp","right":34,"rightLabel":"MVp"}, {"leftLabel":"hWV","left":0,"label":"WV","right":24,"rightLabel":"dWV"}, {"leftLabel":"Spx","left":13,"label":"Spx","right":24,"rightLabel":"S"}, {"leftLabel":"Sux","left":13,"label":"Sux","right":24,"rightLabel":"S"}]
+
+[with] 
+[{"leftLabel":"MJlp","left":25,"label":"MJlp","right":34,"rightLabel":"MJlp"}, {"leftLabel":"J","left":25,"label":"Ju","right":27,"rightLabel":"Ju"}]
+
+[dietary.a] 
+[{"leftLabel":"A","left":26,"label":"A","right":27,"rightLabel":"A"}]
+
+[intake.n-u] 
+[{"leftLabel":"J","left":25,"label":"Ju","right":27,"rightLabel":"Ju"}, {"leftLabel":"A","left":26,"label":"A","right":27,"rightLabel":"A"}, {"leftLabel":"M","left":27,"label":"Mf","right":28,"rightLabel":"Mf"}, {"leftLabel":"M","left":27,"label":"Mp","right":28,"rightLabel":"Mp"}, {"leftLabel":"MXs","left":27,"label":"MXs","right":32,"rightLabel":"MX"}]
+
+[of] 
+[{"leftLabel":"M","left":27,"label":"Mf","right":28,"rightLabel":"Mf"}, {"leftLabel":"Jp","left":28,"label":"Jp","right":30,"rightLabel":"Jp"}, {"leftLabel":"M","left":27,"label":"Mp","right":28,"rightLabel":"Mp"}]
+
+[saturated.v-d] 
+[{"leftLabel":"A","left":29,"label":"A","right":30,"rightLabel":"A"}]
+
+[fats.n] 
+[{"leftLabel":"Jp","left":28,"label":"Jp","right":30,"rightLabel":"Jp"}, {"leftLabel":"A","left":29,"label":"A","right":30,"rightLabel":"A"}, {"leftLabel":"MXp","left":30,"label":"MXp","right":32,"rightLabel":"MX"}]
+
+[(] 
+[{"leftLabel":"dXdp","left":31,"label":"Xdp","right":32,"rightLabel":"Xd"}]
+
+[1] 
+[{"leftLabel":"MXp","left":30,"label":"MXp","right":32,"rightLabel":"MX"}, {"leftLabel":"dXdp","left":31,"label":"Xdp","right":32,"rightLabel":"Xd"}, {"leftLabel":"Xc","left":32,"label":"Xcp","right":33,"rightLabel":"dXcp"}, {"leftLabel":"MXs","left":27,"label":"MXs","right":32,"rightLabel":"MX"}]
+
+[)] 
+[{"leftLabel":"Xc","left":32,"label":"Xcp","right":33,"rightLabel":"dXcp"}]
+
+[and.j-m] 
+[{"leftLabel":"MV","left":24,"label":"MVp","right":34,"rightLabel":"MVp"}, {"leftLabel":"MJlp","left":25,"label":"MJlp","right":34,"rightLabel":"MJlp"}, {"leftLabel":"MJrp","left":34,"label":"MJrp","right":36,"rightLabel":"MJrp"}, {"leftLabel":"EBb","left":34,"label":"EBb","right":35,"rightLabel":"EB"}]
+
+[specifically.e] 
+[{"leftLabel":"EBb","left":34,"label":"EBb","right":35,"rightLabel":"EB"}]
+
+[with] 
+[{"leftLabel":"MJrp","left":34,"label":"MJrp","right":36,"rightLabel":"MJrp"}, {"leftLabel":"J","left":36,"label":"Ju","right":39,"rightLabel":"Ju"}]
+
+[dietary.a] 
+[{"leftLabel":"A","left":37,"label":"A","right":38,"rightLabel":"A"}, {"leftLabel":"A","left":37,"label":"A","right":39,"rightLabel":"A"}]
+
+[palm.n] 
+[{"leftLabel":"AN","left":38,"label":"AN","right":39,"rightLabel":"AN"}, {"leftLabel":"A","left":37,"label":"A","right":38,"rightLabel":"A"}]
+
+[oil.n-u] 
+[{"leftLabel":"J","left":36,"label":"Ju","right":39,"rightLabel":"Ju"}, {"leftLabel":"AN","left":38,"label":"AN","right":39,"rightLabel":"AN"}, {"leftLabel":"MXs","left":39,"label":"MXs","right":44,"rightLabel":"MX"}, {"leftLabel":"MXs","left":39,"label":"MXs","right":41,"rightLabel":"MX"}, {"leftLabel":"A","left":37,"label":"A","right":39,"rightLabel":"A"}]
+
+[(] 
+[{"leftLabel":"dXdp","left":40,"label":"Xdp","right":41,"rightLabel":"Xd"}]
+
+[PO.l] 
+[{"leftLabel":"MXs","left":39,"label":"MXs","right":41,"rightLabel":"MX"}, {"leftLabel":"dXdp","left":40,"label":"Xdp","right":41,"rightLabel":"Xd"}, {"leftLabel":"Xc","left":41,"label":"Xcp","right":42,"rightLabel":"dXcp"}]
+
+[)] 
+[{"leftLabel":"Xc","left":41,"label":"Xcp","right":42,"rightLabel":"dXcp"}]
+
+[(] 
+[{"leftLabel":"dXdp","left":43,"label":"Xdp","right":44,"rightLabel":"Xd"}]
+
+[2] 
+[{"leftLabel":"MXs","left":39,"label":"MXs","right":44,"rightLabel":"MX"}, {"leftLabel":"dXdp","left":43,"label":"Xdp","right":44,"rightLabel":"Xd"}, {"leftLabel":"Xc","left":44,"label":"Xcp","right":45,"rightLabel":"dXcp"}]
+
+[)] 
+[{"leftLabel":"Xc","left":44,"label":"Xcp","right":45,"rightLabel":"dXcp"}]
+
+[.] 
+[{"leftLabel":"Xp","left":0,"label":"Xp","right":46,"rightLabel":"Xp"}, {"leftLabel":"RW","left":46,"label":"RW","right":47,"rightLabel":"RW"}]
+
+[RIGHT-WALL] 
+[{"leftLabel":"RW","left":46,"label":"RW","right":47,"rightLabel":"RW"}]
+
+PARSE
+IsDeterminer [the] [{"leftLabel":"D","left":1,"label":"Ds","right":2,"rightLabel":"Ds"}, {"leftLabel":"D","left":1,"label":"Ds**c","right":2,"rightLabel":"Ds**c"}]
+[pandemic.n] [{"leftLabel":"hWa","left":0,"label":"Wa","right":2,"rightLabel":"Wa"}, {"leftLabel":"D","left":1,"label":"Ds","right":2,"rightLabel":"Ds"}, {"leftLabel":"Mf","left":2,"label":"Mf","right":3,"rightLabel":"Mf"}, {"leftLabel":"SJls","left":2,"label":"SJls","right":13,"rightLabel":"SJls"}, {"leftLabel":"D","left":1,"label":"Ds**c","right":2,"rightLabel":"Ds**c"}, {"leftLabel":"M","left":2,"label":"Mp","right":3,"rightLabel":"Mp"}, {"leftLabel":"M","left":2,"label":"Mf","right":3,"rightLabel":"Mf"}]
+[of] [{"leftLabel":"Mf","left":2,"label":"Mf","right":3,"rightLabel":"Mf"}, {"leftLabel":"Jp","left":3,"label":"Jp","right":4,"rightLabel":"Jp"}, {"leftLabel":"M","left":2,"label":"Mp","right":3,"rightLabel":"Mp"}, {"leftLabel":"M","left":2,"label":"Mf","right":3,"rightLabel":"Mf"}]
+[obesity.n-u] [{"leftLabel":"Jp","left":3,"label":"Jp","right":4,"rightLabel":"Jp"}, {"leftLabel":"MXs","left":4,"label":"MXs","right":9,"rightLabel":"MX"}]
+[,] [{"leftLabel":"Xx","left":0,"label":"Xx","right":5,"rightLabel":"Xx"}, {"leftLabel":"Xx","left":5,"label":"Xx","right":13,"rightLabel":"Xx"}, {"leftLabel":"hWi","left":5,"label":"Wi","right":6,"rightLabel":"Wi"}, {"leftLabel":"Xd","left":5,"label":"Xd","right":9,"rightLabel":"Xd"}]
+IsNoun [type.v type.v 2 diabetes.n-u mellitus[!<LATIN-ADJ-WORDS>].a] null
+[T2DM[!<CAPITALIZED-WORDS>]] [{"leftLabel":"MXs","left":9,"label":"MXs","right":11,"rightLabel":"MX"}, {"leftLabel":"dXdp","left":10,"label":"Xdp","right":11,"rightLabel":"Xd"}, {"leftLabel":"Xc","left":11,"label":"Xcp","right":12,"rightLabel":"dXcp"}, {"leftLabel":"Xc","left":11,"label":"Xca","right":12,"rightLabel":"Xca"}]
+[)] [{"leftLabel":"Xc","left":11,"label":"Xcp","right":12,"rightLabel":"dXcp"}, {"leftLabel":"Xc","left":9,"label":"Xcp","right":12,"rightLabel":"dXcp"}, {"leftLabel":"Xc","left":11,"label":"Xca","right":12,"rightLabel":"Xca"}]
+[and.ij] [{"leftLabel":"Xx","left":5,"label":"Xx","right":13,"rightLabel":"Xx"}, {"leftLabel":"hWV","left":13,"label":"WV","right":24,"rightLabel":"dWV"}, {"leftLabel":"Wdc","left":13,"label":"Wdc","right":17,"rightLabel":"Wd"}, {"leftLabel":"Xx","left":0,"label":"Xx","right":13,"rightLabel":"Xx"}, {"leftLabel":"hWd","left":0,"label":"Wd","right":13,"rightLabel":"Wd"}, {"leftLabel":"Spx","left":13,"label":"Spx","right":24,"rightLabel":"S"}, {"leftLabel":"SJls","left":2,"label":"SJls","right":13,"rightLabel":"SJls"}, {"leftLabel":"Bs","left":13,"label":"Bs*t","right":23,"rightLabel":"B**t"}, {"leftLabel":"R","left":13,"label":"Rn","right":17,"rightLabel":"Rn"}, {"leftLabel":"SJrs","left":13,"label":"SJrs","right":16,"rightLabel":"SJrs"}, {"leftLabel":"Sux","left":13,"label":"Sux","right":24,"rightLabel":"S"}, {"leftLabel":"B","left":13,"label":"B**t","right":23,"rightLabel":"B**t"}, {"leftLabel":"SJru","left":13,"label":"SJru","right":16,"rightLabel":"SJru"}]
+[nonalcoholic[!<ADJ-WORDS>].a] [{"leftLabel":"A","left":14,"label":"A","right":16,"rightLabel":"A"}, {"leftLabel":"A","left":14,"label":"A","right":17,"rightLabel":"A"}]
+[fatty.a] [{"leftLabel":"A","left":15,"label":"A","right":16,"rightLabel":"A"}, {"leftLabel":"A","left":15,"label":"A","right":17,"rightLabel":"A"}]
+IsNoun [liver.n-u disease.n-u] null
+[(] [{"leftLabel":"dXdp","left":18,"label":"Xdp","right":19,"rightLabel":"Xd"}]
+[NAFLD[!<ALL-UPPER>]] [{"leftLabel":"MXs","left":17,"label":"MXs","right":19,"rightLabel":"MX"}, {"leftLabel":"dXdp","left":18,"label":"Xdp","right":19,"rightLabel":"Xd"}, {"leftLabel":"Xc","left":19,"label":"Xcp","right":20,"rightLabel":"dXcp"}]
+[)] [{"leftLabel":"Xc","left":19,"label":"Xcp","right":20,"rightLabel":"dXcp"}]
+[has.v] [{"leftLabel":"Ss","left":17,"label":"Ss","right":21,"rightLabel":"Ss"}, {"leftLabel":"PP","left":21,"label":"PPf","right":23,"rightLabel":"PPf"}]
+[frequently] [{"leftLabel":"Em","left":22,"label":"Em","right":23,"rightLabel":"E"}]
+IsVerb [been.v associated.v-d with] null
+[dietary.a] [{"leftLabel":"A","left":26,"label":"A","right":27,"rightLabel":"A"}]
+[intake.n-u] [{"leftLabel":"J","left":25,"label":"Ju","right":27,"rightLabel":"Ju"}, {"leftLabel":"A","left":26,"label":"A","right":27,"rightLabel":"A"}, {"leftLabel":"M","left":27,"label":"Mf","right":28,"rightLabel":"Mf"}, {"leftLabel":"M","left":27,"label":"Mp","right":28,"rightLabel":"Mp"}, {"leftLabel":"MXs","left":27,"label":"MXs","right":32,"rightLabel":"MX"}]
+[of] [{"leftLabel":"M","left":27,"label":"Mf","right":28,"rightLabel":"Mf"}, {"leftLabel":"Jp","left":28,"label":"Jp","right":30,"rightLabel":"Jp"}, {"leftLabel":"M","left":27,"label":"Mp","right":28,"rightLabel":"Mp"}]
+[saturated.v-d] [{"leftLabel":"A","left":29,"label":"A","right":30,"rightLabel":"A"}]
+[fats.n] [{"leftLabel":"Jp","left":28,"label":"Jp","right":30,"rightLabel":"Jp"}, {"leftLabel":"A","left":29,"label":"A","right":30,"rightLabel":"A"}, {"leftLabel":"MXp","left":30,"label":"MXp","right":32,"rightLabel":"MX"}]
+[(] [{"leftLabel":"dXdp","left":31,"label":"Xdp","right":32,"rightLabel":"Xd"}]
+[1] [{"leftLabel":"MXp","left":30,"label":"MXp","right":32,"rightLabel":"MX"}, {"leftLabel":"dXdp","left":31,"label":"Xdp","right":32,"rightLabel":"Xd"}, {"leftLabel":"Xc","left":32,"label":"Xcp","right":33,"rightLabel":"dXcp"}, {"leftLabel":"MXs","left":27,"label":"MXs","right":32,"rightLabel":"MX"}]
+[)] [{"leftLabel":"Xc","left":32,"label":"Xcp","right":33,"rightLabel":"dXcp"}]
+[and.j-m] [{"leftLabel":"MV","left":24,"label":"MVp","right":34,"rightLabel":"MVp"}, {"leftLabel":"MJlp","left":25,"label":"MJlp","right":34,"rightLabel":"MJlp"}, {"leftLabel":"MJrp","left":34,"label":"MJrp","right":36,"rightLabel":"MJrp"}, {"leftLabel":"EBb","left":34,"label":"EBb","right":35,"rightLabel":"EB"}]
+[specifically.e] [{"leftLabel":"EBb","left":34,"label":"EBb","right":35,"rightLabel":"EB"}]
+[with] [{"leftLabel":"MJrp","left":34,"label":"MJrp","right":36,"rightLabel":"MJrp"}, {"leftLabel":"J","left":36,"label":"Ju","right":39,"rightLabel":"Ju"}]
+[dietary.a] [{"leftLabel":"A","left":37,"label":"A","right":38,"rightLabel":"A"}, {"leftLabel":"A","left":37,"label":"A","right":39,"rightLabel":"A"}]
+IsNoun [palm.n oil.n-u] null
+[(] [{"leftLabel":"dXdp","left":40,"label":"Xdp","right":41,"rightLabel":"Xd"}]
+[PO.l] [{"leftLabel":"MXs","left":39,"label":"MXs","right":41,"rightLabel":"MX"}, {"leftLabel":"dXdp","left":40,"label":"Xdp","right":41,"rightLabel":"Xd"}, {"leftLabel":"Xc","left":41,"label":"Xcp","right":42,"rightLabel":"dXcp"}]
+[)] [{"leftLabel":"Xc","left":41,"label":"Xcp","right":42,"rightLabel":"dXcp"}]
+[(] [{"leftLabel":"dXdp","left":43,"label":"Xdp","right":44,"rightLabel":"Xd"}]
+[2] [{"leftLabel":"MXs","left":39,"label":"MXs","right":44,"rightLabel":"MX"}, {"leftLabel":"dXdp","left":43,"label":"Xdp","right":44,"rightLabel":"Xd"}, {"leftLabel":"Xc","left":44,"label":"Xcp","right":45,"rightLabel":"dXcp"}]
+[)] [{"leftLabel":"Xc","left":44,"label":"Xcp","right":45,"rightLabel":"dXcp"}]
+[.] [{"leftLabel":"Xp","left":0,"label":"Xp","right":46,"rightLabel":"Xp"}, {"leftLabel":"RW","left":46,"label":"RW","right":47,"rightLabel":"RW"}]
+

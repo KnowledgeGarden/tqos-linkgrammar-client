@@ -1,0 +1,276 @@
+THEORY
+Starting Condition
+	An array of Features including left and right walls
+		A Feature represents a parse of a word, its POS
+		and its links
+Ending Condition
+	An array of Features which will be the equivalent of a
+		SpaCy-like parse
+	This array may be shorter than the original array minus its two walls
+		because some noun and verb phrases, as one Feature, will
+		replace several individuals in the array
+
+#################################
+Log
+20200503
+	New sentence: colorless green ideas sleep furiously
+		Got a clean parse on it.
+		This sentence is meaningless - a standard AI test - but at least it can be read.
+	Now that the LG was updated to 0.5.80, and Linas made one patch, time to review all
+		previous sentences and add a few more.
+
+20200425
+	Sentence 4
+	[some] 
+	[{"leftLabel":"D","left":1,"label":"Dmc","right":2,"rightLabel":"Dmc"}, 
+	 {"leftLabel":"hWd","left":0,"label":"Wd","right":1,"rightLabel":"Wd"}, 
+	 {"leftLabel":"S","left":1,"label":"Ss","right":6,"rightLabel":"Ss"}, 
+	 {"leftLabel":"B","left":1,"label":"B*d","right":3,"rightLabel":"B*d"}, 
+	 {"leftLabel":"R","left":1,"label":"Rn","right":2,"rightLabel":"Rn"}, 
+	 {"leftLabel":"B","left":1,"label":"B*w","right":3,"rightLabel":"B*w"}]
+	
+	[scientists.n] 
+	[{"leftLabel":"hWd","left":0,"label":"Wd","right":2,"rightLabel":"Wd"}, 
+	 {"leftLabel":"Sp","left":2,"label":"Sp","right":3,"rightLabel":"Sp"}, 
+	 {"leftLabel":"D","left":1,"label":"Dmc","right":2,"rightLabel":"Dmc"}, 
+	 {"leftLabel":"R","left":1,"label":"Rn","right":2,"rightLabel":"Rn"}]
+	Sentence 7 --> Many membrane == Noun (wrong)
+	[many] 
+	[{"leftLabel":"Dmc","left":1,"label":"Dmc","right":3,"rightLabel":"Dmc"}, 
+	 {"leftLabel":"AN","left":1,"label":"AN","right":2,"rightLabel":"AN"}, 
+	 {"leftLabel":"AN","left":1,"label":"AN","right":3,"rightLabel":"AN"}]
+	
+	[membrane.n-u] 
+	[{"leftLabel":"AN","left":2,"label":"AN","right":3,"rightLabel":"AN"}, 
+	 {"leftLabel":"AN","left":1,"label":"AN","right":2,"rightLabel":"AN"}, 
+	 {"leftLabel":"hWd","left":0,"label":"Wd","right":2,"rightLabel":"Wd"}, 
+	 {"leftLabel":"Ss","left":2,"label":"Ss","right":18,"rightLabel":"Ss"}, 
+	 {"leftLabel":"Bs","left":2,"label":"Bsd","right":4,"rightLabel":"B*d"}, 
+	 {"leftLabel":"R","left":2,"label":"Rn","right":3,"rightLabel":"Rn"}]
+	
+	[proteins.n] 
+	[{"leftLabel":"hWd","left":0,"label":"Wd","right":3,"rightLabel":"Wd"}, 
+	 {"leftLabel":"Sp","left":3,"label":"Sp","right":4,"rightLabel":"Sp"}, 
+	 {"leftLabel":"Dmc","left":1,"label":"Dmc","right":3,"rightLabel":"Dmc"}, 
+	 {"leftLabel":"AN","left":2,"label":"AN","right":3,"rightLabel":"AN"}, 
+	 {"leftLabel":"AN","left":1,"label":"AN","right":3,"rightLabel":"AN"}, 
+	 {"leftLabel":"R","left":2,"label":"Rn","right":3,"rightLabel":"Rn"}]
+	
+	Observations
+		This is not the work of D - it's not active
+		Prime differences
+			4: "some" has no AN
+			7: "many" has AN
+				Still, 7 did not pick up AN to "proteins"
+		Changing AN to ignore Determiners fixed that.
+		New problem:
+			IsNoun [sense.v sense.v the voltage.n-u] 
+		Fixed by disabling O
+			Disabling O changed Sentence 3 parse
+		Conundrum:
+			7 has an AN on type
+				That should fire
+			4 does not have an AN on sense
+		Issue is weak A
+			isVerb
+20200424
+	Today: explore the "some" and "many" aspects of S4 and S7
+20200423
+	Beginning to form a model of how Anticipation can work. For example:
+		D is a determiner
+			Its left will point to its right, which is the object (noun) being determined,
+			e.g. "the black dog": left=0, right=2
+		The idea would be to let 2 know it's the target of a determiner.
+	To now, only using leftLabel; time to add rightLabel into interpreters to refine the interpretation.
+	Started implementation of "I" interpreter, needed for this new sentence
+	New Sentence
+		[because] [{"leftLabel":"dCO*s","left":1,"label":"CO*s","right":6,"rightLabel":"hCO"}, {"leftLabel":"Xc","left":1,"label":"Xc","right":5,"rightLabel":"Xc"}, {"leftLabel":"CV","left":1,"label":"CV","right":3,"rightLabel":"dCV"}, {"leftLabel":"Cs","left":1,"label":"Cs","right":2,"rightLabel":"C"}, {"leftLabel":"hWd","left":0,"label":"Wd","right":1,"rightLabel":"Wd"}, {"leftLabel":"Rnx","left":1,"label":"Rnx","right":2,"rightLabel":"Rn"}]
+		[humans.n] [{"leftLabel":"Cs","left":1,"label":"Cs","right":2,"rightLabel":"C"}, {"leftLabel":"Sp","left":2,"label":"Sp","right":3,"rightLabel":"Sp"}, {"leftLabel":"Rnx","left":1,"label":"Rnx","right":2,"rightLabel":"Rn"}, {"leftLabel":"Sp","left":2,"label":"Sp","right":5,"rightLabel":"Sp"}]
+		[consume.v] [{"leftLabel":"CV","left":1,"label":"CV","right":3,"rightLabel":"dCV"}, {"leftLabel":"Sp","left":2,"label":"Sp","right":3,"rightLabel":"Sp"}, {"leftLabel":"O","left":3,"label":"Ou","right":4,"rightLabel":"Ou"}, {"leftLabel":"VJlp","left":3,"label":"VJlpi","right":5,"rightLabel":"VJlpi"}, {"leftLabel":"hWV","left":0,"label":"WV","right":3,"rightLabel":"dWV"}]
+		[food.n-u] [{"leftLabel":"O","left":3,"label":"Ou","right":4,"rightLabel":"Ou"}]
+		[,] [{"leftLabel":"Xc","left":1,"label":"Xc","right":5,"rightLabel":"Xc"}, {"leftLabel":"hWV","left":0,"label":"WV","right":5,"rightLabel":"dWV"}, {"leftLabel":"Sp","left":2,"label":"Sp","right":5,"rightLabel":"Sp"}, {"leftLabel":"VJlp","left":3,"label":"VJlpi","right":5,"rightLabel":"VJlpi"}, {"leftLabel":"VJrpi","left":5,"label":"VJrpi","right":8,"rightLabel":"VJrpi"}, {"leftLabel":"Xx","left":0,"label":"Xx","right":5,"rightLabel":"Xx"}, {"leftLabel":"hWV","left":5,"label":"WV","right":8,"rightLabel":"dWV"}, {"leftLabel":"hWd","left":5,"label":"Wd","right":6,"rightLabel":"Wd"}]
+		[they] [{"leftLabel":"hWd","left":0,"label":"Wd","right":6,"rightLabel":"Wd"}, {"leftLabel":"dCO*s","left":1,"label":"CO*s","right":6,"rightLabel":"hCO"}, {"leftLabel":"Sp","left":6,"label":"Sp","right":7,"rightLabel":"Sp"}, {"leftLabel":"hWd","left":5,"label":"Wd","right":6,"rightLabel":"Wd"}]
+		IsVerb [can.v can.v survive.v] null
+	
+	Observations
+		I see no link between 2 - humans, and 6 - they
+	Solved the "type 2 diabetes mellitus" problem by improving O.
+20200422
+	New Sentence
+		[in.r] [{"leftLabel":"dCOa","left":1,"label":"COa","right":17,"rightLabel":"hCO"}, {"leftLabel":"J","left":1,"label":"Js","right":3,"rightLabel":"Js"}, {"leftLabel":"dCOd","left":1,"label":"COd","right":17,"rightLabel":"hCO"}, {"leftLabel":"dCOd","left":1,"label":"COd","right":11,"rightLabel":"hCO"}, {"leftLabel":"Xc","left":1,"label":"Xc","right":8,"rightLabel":"Xc"}, {"leftLabel":"hWl","left":0,"label":"Wl","right":1,"rightLabel":"dWl"}, {"leftLabel":"J","left":1,"label":"Js","right":7,"rightLabel":"Js"}, {"leftLabel":"J","left":1,"label":"Ju","right":15,"rightLabel":"Ju"}, {"leftLabel":"dCOw","left":1,"label":"COw","right":11,"rightLabel":"hCO"}, {"leftLabel":"dCOw","left":1,"label":"COw","right":17,"rightLabel":"hCO"}, {"leftLabel":"dCOa","left":1,"label":"COa","right":11,"rightLabel":"hCO"}, {"leftLabel":"dCOa","left":1,"label":"COa","right":7,"rightLabel":"hCO"}, {"leftLabel":"J","left":1,"label":"J","right":8,"rightLabel":"J"}]
+		[this.d] [{"leftLabel":"D*u","left":2,"label":"D*u","right":3,"rightLabel":"D"}, {"leftLabel":"D*u","left":2,"label":"D*u","right":7,"rightLabel":"D"}]
+		[Journal[!<CAPITALIZED-WORDS>]] [{"leftLabel":"J","left":1,"label":"Js","right":3,"rightLabel":"Js"}, {"leftLabel":"D*u","left":2,"label":"D*u","right":3,"rightLabel":"D"}, {"leftLabel":"Mf","left":3,"label":"Mf","right":12,"rightLabel":"Mf"}, {"leftLabel":"M","left":3,"label":"Mp","right":4,"rightLabel":"Mp"}, {"leftLabel":"M","left":3,"label":"Mf","right":4,"rightLabel":"Mf"}, {"leftLabel":"M","left":3,"label":"Mf","right":12,"rightLabel":"Mf"}, {"leftLabel":"G","left":3,"label":"G","right":7,"rightLabel":"G"}, {"leftLabel":"MG","left":3,"label":"MG","right":4,"rightLabel":"MG"}, {"leftLabel":"SJls","left":3,"label":"SJls","right":15,"rightLabel":"SJls"}, {"leftLabel":"M","left":3,"label":"Mp","right":12,"rightLabel":"Mp"}, {"leftLabel":"Mf","left":3,"label":"Mf","right":4,"rightLabel":"Mf"}, {"leftLabel":"SJls","left":3,"label":"SJls","right":8,"rightLabel":"SJl"}]
+		[of] [{"leftLabel":"M","left":3,"label":"Mp","right":4,"rightLabel":"Mp"}, {"leftLabel":"Jp","left":4,"label":"Jp","right":8,"rightLabel":"J"}, {"leftLabel":"M","left":3,"label":"Mf","right":4,"rightLabel":"Mf"}, {"leftLabel":"Js","left":4,"label":"Js","right":8,"rightLabel":"J"}, {"leftLabel":"Js","left":4,"label":"Js","right":7,"rightLabel":"Js"}, {"leftLabel":"MG","left":3,"label":"MG","right":4,"rightLabel":"MG"}, {"leftLabel":"JG","left":4,"label":"JG","right":6,"rightLabel":"JG"}, {"leftLabel":"Ju","left":4,"label":"Ju","right":8,"rightLabel":"J"}, {"leftLabel":"Mf","left":3,"label":"Mf","right":4,"rightLabel":"Mf"}, {"leftLabel":"Ju","left":4,"label":"Ju","right":15,"rightLabel":"Ju"}, {"leftLabel":"JG","left":4,"label":"JG","right":7,"rightLabel":"JG"}, {"leftLabel":"TI","left":4,"label":"TI","right":5,"rightLabel":"TI"}]
+		[General.n, General.t] [{"leftLabel":"GN","left":5,"label":"GN","right":7,"rightLabel":"GN"}, {"leftLabel":"GN","left":5,"label":"GN","right":6,"rightLabel":"GN"}, {"leftLabel":"TI","left":4,"label":"TI","right":5,"rightLabel":"TI"}]
+		[Physiology[!<CAPITALIZED-WORDS>]] [{"leftLabel":"G","left":6,"label":"G","right":7,"rightLabel":"G"}, {"leftLabel":"JG","left":4,"label":"JG","right":6,"rightLabel":"JG"}, {"leftLabel":"GN","left":5,"label":"GN","right":6,"rightLabel":"GN"}]
+		[Milestone[!<CAPITALIZED-WORDS>]] [{"leftLabel":"SJls","left":7,"label":"SJls","right":8,"rightLabel":"SJl"}, {"leftLabel":"GN","left":5,"label":"GN","right":7,"rightLabel":"GN"}, {"leftLabel":"G","left":6,"label":"G","right":7,"rightLabel":"G"}, {"leftLabel":"Js","left":4,"label":"Js","right":7,"rightLabel":"Js"}, {"leftLabel":"J","left":1,"label":"Js","right":7,"rightLabel":"Js"}, {"leftLabel":"D*u","left":2,"label":"D*u","right":7,"rightLabel":"D"}, {"leftLabel":"G","left":3,"label":"G","right":7,"rightLabel":"G"}, {"leftLabel":"JG","left":4,"label":"JG","right":7,"rightLabel":"JG"}, {"leftLabel":"hWd","left":0,"label":"Wd","right":7,"rightLabel":"Wd"}, {"leftLabel":"Ss*s","left":7,"label":"Ss*s","right":21,"rightLabel":"S"}, {"leftLabel":"dCOa","left":1,"label":"COa","right":7,"rightLabel":"hCO"}, {"leftLabel":"MXs","left":7,"label":"MXs","right":11,"rightLabel":"MX"}]
+		[,.j, ,] [{"leftLabel":"Jp","left":4,"label":"Jp","right":8,"rightLabel":"J"}, {"leftLabel":"SJls","left":7,"label":"SJls","right":8,"rightLabel":"SJl"}, {"leftLabel":"SJr","left":8,"label":"SJrp","right":11,"rightLabel":"SJrp"}, {"leftLabel":"Js","left":4,"label":"Js","right":8,"rightLabel":"J"}, {"leftLabel":"Xc","left":1,"label":"Xc","right":8,"rightLabel":"Xc"}, {"leftLabel":"Ju","left":4,"label":"Ju","right":8,"rightLabel":"J"}, {"leftLabel":"SJl","left":8,"label":"SJlp","right":15,"rightLabel":"SJlp"}, {"leftLabel":"SJl","left":8,"label":"SJls","right":15,"rightLabel":"SJls"}, {"leftLabel":"SJls","left":3,"label":"SJls","right":8,"rightLabel":"SJl"}, {"leftLabel":"SJr","left":8,"label":"SJrs","right":10,"rightLabel":"SJrs"}, {"leftLabel":"Xd","left":8,"label":"Xd","right":11,"rightLabel":"Xd"}, {"leftLabel":"J","left":1,"label":"J","right":8,"rightLabel":"J"}]
+		[the] [{"leftLabel":"D","left":9,"label":"Dmc","right":11,"rightLabel":"Dmc"}, {"leftLabel":"D","left":9,"label":"Dmc","right":17,"rightLabel":"Dmc"}, {"leftLabel":"D","left":9,"label":"Ds**c","right":10,"rightLabel":"Ds**c"}]
+		IsNounPhrase [basic.n principles.n] null
+		[of] [{"leftLabel":"Mf","left":3,"label":"Mf","right":12,"rightLabel":"Mf"}, {"leftLabel":"Ju","left":12,"label":"Ju","right":13,"rightLabel":"Ju"}, {"leftLabel":"Ju","left":12,"label":"Ju","right":15,"rightLabel":"Ju"}, {"leftLabel":"M","left":11,"label":"Mf","right":12,"rightLabel":"Mf"}, {"leftLabel":"Jp","left":12,"label":"Jp","right":17,"rightLabel":"Jp"}, {"leftLabel":"M","left":3,"label":"Mf","right":12,"rightLabel":"Mf"}, {"leftLabel":"M","left":11,"label":"Mp","right":12,"rightLabel":"Mp"}, {"leftLabel":"M","left":3,"label":"Mp","right":12,"rightLabel":"Mp"}, {"leftLabel":"Jp","left":12,"label":"Jp","right":14,"rightLabel":"J"}, {"leftLabel":"Mp","left":11,"label":"Mp","right":12,"rightLabel":"Mp"}, {"leftLabel":"Ju","left":12,"label":"Ju","right":14,"rightLabel":"J"}, {"leftLabel":"Js","left":12,"label":"Js","right":14,"rightLabel":"J"}]
+		IsNounPhrase [voltage.n-u sensing.g] null
+		IsNounPhrase [and.j-a gating.g currents.n] null
+		IsVerbPhrase [are.v presented.v-d ,] null
+		[followed.v-d] [{"leftLabel":"hWx","left":20,"label":"Wx","right":21,"rightLabel":"Wx"}, {"leftLabel":"MV","left":21,"label":"MVp","right":22,"rightLabel":"MVp"}, {"leftLabel":"VJrst","left":20,"label":"VJrst","right":21,"rightLabel":"VJr*t"}, {"leftLabel":"Bs","left":13,"label":"Bsw","right":21,"rightLabel":"B*w"}, {"leftLabel":"VJrp","left":20,"label":"VJrpi","right":21,"rightLabel":"VJr*i"}, {"leftLabel":"B","left":15,"label":"B*w","right":21,"rightLabel":"B*w"}, {"leftLabel":"VJrs","left":20,"label":"VJrsi","right":21,"rightLabel":"VJr*i"}, {"leftLabel":"MV","left":19,"label":"MVg","right":21,"rightLabel":"MVg"}, {"leftLabel":"Xd","left":20,"label":"Xd","right":21,"rightLabel":"Xd"}, {"leftLabel":"Xc","left":21,"label":"Xc","right":32,"rightLabel":"Xc"}, {"leftLabel":"O*n","left":21,"label":"Osn","right":25,"rightLabel":"Os"}, {"leftLabel":"K","left":21,"label":"K","right":22,"rightLabel":"K"}, {"leftLabel":"VJrpt","left":20,"label":"VJrpt","right":21,"rightLabel":"VJr*t"}, {"leftLabel":"Pa","left":19,"label":"Pa","right":21,"rightLabel":"Pa"}, {"leftLabel":"hWV","left":0,"label":"WV","right":21,"rightLabel":"dWV"}, {"leftLabel":"Ss*s","left":7,"label":"Ss*s","right":21,"rightLabel":"S"}]
+		[by] [{"leftLabel":"MV","left":21,"label":"MVp","right":22,"rightLabel":"MVp"}, {"leftLabel":"J","left":22,"label":"Js","right":25,"rightLabel":"Js"}, {"leftLabel":"MV","left":20,"label":"MVp","right":22,"rightLabel":"MVp"}, {"leftLabel":"K","left":21,"label":"K","right":22,"rightLabel":"K"}, {"leftLabel":"M","left":11,"label":"Mp","right":22,"rightLabel":"Mp"}]
+		[a] [{"leftLabel":"Ds**x","left":23,"label":"Ds**x","right":25,"rightLabel":"Ds**x"}, {"leftLabel":"PHc","left":23,"label":"PHc","right":24,"rightLabel":"PHc"}]
+		[historical.a] [{"leftLabel":"PHc","left":23,"label":"PHc","right":24,"rightLabel":"PHc"}, {"leftLabel":"A","left":24,"label":"A","right":25,"rightLabel":"A"}]
+		[description.n] [{"leftLabel":"J","left":22,"label":"Js","right":25,"rightLabel":"Js"}, {"leftLabel":"Ds**x","left":23,"label":"Ds**x","right":25,"rightLabel":"Ds**x"}, {"leftLabel":"A","left":24,"label":"A","right":25,"rightLabel":"A"}, {"leftLabel":"Mf","left":25,"label":"Mf","right":26,"rightLabel":"Mf"}, {"leftLabel":"Mf","left":25,"label":"Mf","right":29,"rightLabel":"Mf"}, {"leftLabel":"M","left":25,"label":"Mp","right":26,"rightLabel":"Mp"}, {"leftLabel":"M","left":25,"label":"Mf","right":26,"rightLabel":"Mf"}, {"leftLabel":"M","left":25,"label":"Mf","right":29,"rightLabel":"Mf"}, {"leftLabel":"O*n","left":21,"label":"Osn","right":25,"rightLabel":"Os"}]
+		[of] [{"leftLabel":"Mf","left":25,"label":"Mf","right":26,"rightLabel":"Mf"}, {"leftLabel":"Jp","left":26,"label":"Jp","right":28,"rightLabel":"J"}, {"leftLabel":"M","left":25,"label":"Mp","right":26,"rightLabel":"Mp"}, {"leftLabel":"M","left":25,"label":"Mf","right":26,"rightLabel":"Mf"}, {"leftLabel":"Ju","left":26,"label":"Ju","right":28,"rightLabel":"J"}, {"leftLabel":"Js","left":26,"label":"Js","right":28,"rightLabel":"J"}, {"leftLabel":"Js","left":26,"label":"Js","right":28,"rightLabel":"Js"}]
+		[the] [{"leftLabel":"D","left":27,"label":"Dmu","right":28,"rightLabel":"Dmu"}, {"leftLabel":"D","left":27,"label":"Ds","right":28,"rightLabel":"Ds"}]
+		[recording.g, recording.n] [{"leftLabel":"Jp","left":26,"label":"Jp","right":28,"rightLabel":"J"}, {"leftLabel":"D","left":27,"label":"Dmu","right":28,"rightLabel":"Dmu"}, {"leftLabel":"M","left":28,"label":"Mf","right":29,"rightLabel":"Mf"}, {"leftLabel":"Ju","left":26,"label":"Ju","right":28,"rightLabel":"J"}, {"leftLabel":"Js","left":26,"label":"Js","right":28,"rightLabel":"J"}, {"leftLabel":"M","left":28,"label":"Mp","right":29,"rightLabel":"Mp"}, {"leftLabel":"Js","left":26,"label":"Js","right":28,"rightLabel":"Js"}, {"leftLabel":"D","left":27,"label":"Ds","right":28,"rightLabel":"Ds"}, {"leftLabel":"OF","left":28,"label":"OFj","right":29,"rightLabel":"OFj"}]
+		[of] [{"leftLabel":"M","left":28,"label":"Mf","right":29,"rightLabel":"Mf"}, {"leftLabel":"Mgp","left":29,"label":"Mgp","right":30,"rightLabel":"Mg"}, {"leftLabel":"Mf","left":25,"label":"Mf","right":29,"rightLabel":"Mf"}, {"leftLabel":"Jp","left":29,"label":"Jp","right":30,"rightLabel":"J"}, {"leftLabel":"M","left":25,"label":"Mf","right":29,"rightLabel":"Mf"}, {"leftLabel":"M","left":28,"label":"Mp","right":29,"rightLabel":"Mp"}, {"leftLabel":"OF","left":28,"label":"OFj","right":29,"rightLabel":"OFj"}, {"leftLabel":"Js","left":29,"label":"Js","right":30,"rightLabel":"J"}]
+		[gating.v, gating.g] [{"leftLabel":"Mgp","left":29,"label":"Mgp","right":30,"rightLabel":"Mg"}, {"leftLabel":"O","left":30,"label":"Op","right":31,"rightLabel":"Op"}, {"leftLabel":"Jp","left":29,"label":"Jp","right":30,"rightLabel":"J"}, {"leftLabel":"B","left":20,"label":"B*d","right":30,"rightLabel":"B*d"}, {"leftLabel":"B","left":15,"label":"B*d","right":30,"rightLabel":"B*d"}, {"leftLabel":"B","left":15,"label":"B*w","right":30,"rightLabel":"B*w"}, {"leftLabel":"Js","left":29,"label":"Js","right":30,"rightLabel":"J"}]
+		[currents.n] [{"leftLabel":"O","left":30,"label":"Op","right":31,"rightLabel":"Op"}, {"leftLabel":"O","left":20,"label":"Op","right":31,"rightLabel":"Op"}]
+		[.] [{"leftLabel":"Xp","left":0,"label":"Xp","right":32,"rightLabel":"Xp"}, {"leftLabel":"RW","left":32,"label":"RW","right":33,"rightLabel":"RW"}, {"leftLabel":"Xc","left":21,"label":"Xc","right":32,"rightLabel":"Xc"}]
+	Observations
+		"Journal of General Physiology Milestone" is an undetected noun phrase
+			To fix that, implement G which will tie them all together
+			That worked
+		"and gating currents" is wrong; it seems that the counter went one too many on "voltage sensing"
+			Turns out that LinkGrammarInterpreter installs links to the left and the right
+				THAT MIGHT BE WRONG
+				but it means a conjunction (and) got trapped into an AN
+				The fix was to reject an AN which is a conjunction
+					That might be a dangerous test.
+		"gating currents" at the end should be a noun phrase (it was picked up that way earlier
+			This pair is not marked with AN; rather it's marked with, among other things, O,
+			which connects gerunds to nouns. To fix, implement O
+			O was implemented.
+		The sentence now parses correctly
+	New Sentence
+		[sleep.n-u, Sleep[!<CAPITALIZED-WORDS>]] [{"leftLabel":"hWd","left":0,"label":"Wd","right":1,"rightLabel":"Wd"}, {"leftLabel":"Ss","left":1,"label":"Ss","right":2,"rightLabel":"Ss"}, {"leftLabel":"Ss*s","left":1,"label":"Ss*s","right":2,"rightLabel":"Ss"}]
+		[is.v] [{"leftLabel":"hWV","left":0,"label":"WV","right":2,"rightLabel":"dWV"}, {"leftLabel":"Ss","left":1,"label":"Ss","right":2,"rightLabel":"Ss"}, {"leftLabel":"Pa","left":2,"label":"Paf","right":3,"rightLabel":"Paf"}, {"leftLabel":"Ss*s","left":1,"label":"Ss*s","right":2,"rightLabel":"Ss"}]
+		[essential.a] [{"leftLabel":"Pa","left":2,"label":"Paf","right":3,"rightLabel":"Paf"}, {"leftLabel":"MV","left":3,"label":"MVp","right":4,"rightLabel":"MVp"}]
+		[for.p] [{"leftLabel":"MV","left":3,"label":"MVp","right":4,"rightLabel":"MVp"}, {"leftLabel":"J","left":4,"label":"Ju","right":7,"rightLabel":"Ju"}]
+		[both.d] [{"leftLabel":"XJa","left":5,"label":"XJa","right":7,"rightLabel":"XJa"}]
+		[cognition.n-u] [{"leftLabel":"SJlp","left":6,"label":"SJlp","right":7,"rightLabel":"SJlp"}, {"leftLabel":"SJlu","left":6,"label":"SJlu","right":7,"rightLabel":"SJlu"}]
+		[and.j-n] [{"leftLabel":"J","left":4,"label":"Ju","right":7,"rightLabel":"Ju"}, {"leftLabel":"XJa","left":5,"label":"XJa","right":7,"rightLabel":"XJa"}, {"leftLabel":"SJlp","left":6,"label":"SJlp","right":7,"rightLabel":"SJlp"}, {"leftLabel":"M","left":7,"label":"Mp","right":9,"rightLabel":"Mp"}, {"leftLabel":"SJru","left":7,"label":"SJru","right":8,"rightLabel":"SJru"}, {"leftLabel":"M","left":7,"label":"Mf","right":9,"rightLabel":"Mf"}, {"leftLabel":"SJlu","left":6,"label":"SJlu","right":7,"rightLabel":"SJlu"}, {"leftLabel":"SJr","left":7,"label":"SJrp","right":8,"rightLabel":"SJrp"}, {"leftLabel":"SJr","left":7,"label":"SJru","right":8,"rightLabel":"SJru"}]
+		[maintenance.n-u] [{"leftLabel":"SJru","left":7,"label":"SJru","right":8,"rightLabel":"SJru"}, {"leftLabel":"SJr","left":7,"label":"SJrp","right":8,"rightLabel":"SJrp"}, {"leftLabel":"SJr","left":7,"label":"SJru","right":8,"rightLabel":"SJru"}]
+		[of] [{"leftLabel":"M","left":7,"label":"Mp","right":9,"rightLabel":"Mp"}, {"leftLabel":"Ju","left":9,"label":"Ju","right":12,"rightLabel":"Ju"}, {"leftLabel":"M","left":7,"label":"Mf","right":9,"rightLabel":"Mf"}]
+		[healthy.a] [{"leftLabel":"A","left":10,"label":"A","right":11,"rightLabel":"A"}]
+		IsNounPhrase [brain.n-u function.n-u] null
+		[.] [{"leftLabel":"Xp","left":0,"label":"Xp","right":13,"rightLabel":"Xp"}, {"leftLabel":"RW","left":13,"label":"RW","right":14,"rightLabel":"RW"}]
+	
+	Observations
+		Good parse, not stretching anything
+	New Sentence
+		IsNounPhrase [many membrane.n-u proteins.n] null
+		[sense.v] [{"leftLabel":"hWV","left":0,"label":"WV","right":4,"rightLabel":"dWV"}, {"leftLabel":"Sp","left":3,"label":"Sp","right":4,"rightLabel":"Sp"}, {"leftLabel":"MV","left":4,"label":"MVp","right":10,"rightLabel":"MVp"}, {"leftLabel":"MV","left":4,"label":"MVp","right":7,"rightLabel":"MVp"}, {"leftLabel":"O","left":4,"label":"Os","right":6,"rightLabel":"Os"}, {"leftLabel":"O","left":4,"label":"Ou","right":6,"rightLabel":"Ou"}, {"leftLabel":"CV","left":4,"label":"CV","right":19,"rightLabel":"dCV"}, {"leftLabel":"Ce","left":4,"label":"Ce","right":6,"rightLabel":"C"}]
+		[the] [{"leftLabel":"D","left":5,"label":"Ds**c","right":6,"rightLabel":"Ds**c"}, {"leftLabel":"D","left":5,"label":"Dmu","right":6,"rightLabel":"Dmu"}]
+		[voltage.s, voltage.n-u] [{"leftLabel":"O","left":4,"label":"Os","right":6,"rightLabel":"Os"}, {"leftLabel":"M","left":6,"label":"Mp","right":7,"rightLabel":"Mp"}, {"leftLabel":"D","left":5,"label":"Ds**c","right":6,"rightLabel":"Ds**c"}, {"leftLabel":"O","left":4,"label":"Ou","right":6,"rightLabel":"Ou"}, {"leftLabel":"D","left":5,"label":"Dmu","right":6,"rightLabel":"Dmu"}, {"leftLabel":"Ce","left":4,"label":"Ce","right":6,"rightLabel":"C"}, {"leftLabel":"Ss*s","left":6,"label":"Ss*s","right":18,"rightLabel":"Ss"}, {"leftLabel":"Ss","left":6,"label":"Ss","right":18,"rightLabel":"Ss"}, {"leftLabel":"M","left":6,"label":"Mp","right":10,"rightLabel":"Mp"}]
+		[across] [{"leftLabel":"MV","left":4,"label":"MVp","right":7,"rightLabel":"MVp"}, {"leftLabel":"M","left":6,"label":"Mp","right":7,"rightLabel":"Mp"}, {"leftLabel":"J","left":7,"label":"Js","right":9,"rightLabel":"Js"}, {"leftLabel":"J","left":7,"label":"Ju","right":9,"rightLabel":"Ju"}, {"leftLabel":"J","left":7,"label":"Ju","right":15,"rightLabel":"Ju"}]
+		[the] [{"leftLabel":"D","left":8,"label":"Ds**c","right":9,"rightLabel":"Ds**c"}, {"leftLabel":"D","left":8,"label":"Dmu","right":9,"rightLabel":"Dmu"}]
+		[membrane.s, membrane.n-u] [{"leftLabel":"J","left":7,"label":"Js","right":9,"rightLabel":"Js"}, {"leftLabel":"M","left":9,"label":"Mp","right":10,"rightLabel":"Mp"}, {"leftLabel":"D","left":8,"label":"Ds**c","right":9,"rightLabel":"Ds**c"}, {"leftLabel":"J","left":7,"label":"Ju","right":9,"rightLabel":"Ju"}, {"leftLabel":"D","left":8,"label":"Dmu","right":9,"rightLabel":"Dmu"}, {"leftLabel":"SJlu","left":9,"label":"SJlu","right":15,"rightLabel":"SJlu"}, {"leftLabel":"Mp","left":9,"label":"Mp","right":10,"rightLabel":"Mp"}, {"leftLabel":"SJls","left":9,"label":"SJls","right":15,"rightLabel":"SJls"}, {"leftLabel":"SJlp","left":9,"label":"SJlp","right":15,"rightLabel":"SJlp"}, {"leftLabel":"M","left":9,"label":"Mv","right":13,"rightLabel":"Mv"}]
+		[where] [{"leftLabel":"MV","left":4,"label":"MVp","right":10,"rightLabel":"MVp"}, {"leftLabel":"M","left":9,"label":"Mp","right":10,"rightLabel":"Mp"}, {"leftLabel":"CV","left":10,"label":"CV","right":13,"rightLabel":"dCV"}, {"leftLabel":"Cs","left":10,"label":"Cs","right":11,"rightLabel":"C"}, {"leftLabel":"CV","left":10,"label":"CV","right":12,"rightLabel":"dCV"}, {"leftLabel":"CV","left":10,"label":"CV","right":13,"rightLabel":"CV"}, {"leftLabel":"Mp","left":9,"label":"Mp","right":10,"rightLabel":"Mp"}, {"leftLabel":"M","left":6,"label":"Mp","right":10,"rightLabel":"Mp"}]
+		[they] [{"leftLabel":"Cs","left":10,"label":"Cs","right":11,"rightLabel":"C"}, {"leftLabel":"Sp","left":11,"label":"Spx","right":12,"rightLabel":"Spx"}]
+		IsVerbPhrase [are.v inserted.v-d ,] null
+		[and.ij, and.j-n] [{"leftLabel":"Xx","left":0,"label":"Xx","right":15,"rightLabel":"Xx"}, {"leftLabel":"Xd","left":14,"label":"Xd","right":15,"rightLabel":"Xd"}, {"leftLabel":"hWV","left":15,"label":"WV","right":19,"rightLabel":"dWV"}, {"leftLabel":"Wdc","left":15,"label":"Wdc","right":17,"rightLabel":"Wd"}, {"leftLabel":"J","left":7,"label":"Ju","right":15,"rightLabel":"Ju"}, {"leftLabel":"SJlu","left":9,"label":"SJlu","right":15,"rightLabel":"SJlu"}, {"leftLabel":"SJr","left":15,"label":"SJrp","right":17,"rightLabel":"SJrp"}, {"leftLabel":"SJls","left":9,"label":"SJls","right":15,"rightLabel":"SJls"}, {"leftLabel":"SJru","left":15,"label":"SJru","right":17,"rightLabel":"SJru"}, {"leftLabel":"SJrp","left":15,"label":"SJrp","right":17,"rightLabel":"SJrp"}, {"leftLabel":"SJrs","left":15,"label":"SJrs","right":17,"rightLabel":"SJrs"}, {"leftLabel":"SJlp","left":9,"label":"SJlp","right":15,"rightLabel":"SJlp"}, {"leftLabel":"SJr","left":15,"label":"SJrs","right":17,"rightLabel":"SJrs"}]
+		[their.p] [{"leftLabel":"D","left":16,"label":"Dmu","right":17,"rightLabel":"Dmu"}, {"leftLabel":"D","left":16,"label":"Ds**c","right":17,"rightLabel":"Ds**c"}]
+		[function.n-u, function.n] [{"leftLabel":"Wdc","left":15,"label":"Wdc","right":17,"rightLabel":"Wd"}, {"leftLabel":"D","left":16,"label":"Dmu","right":17,"rightLabel":"Dmu"}, {"leftLabel":"Ss","left":17,"label":"Ss","right":18,"rightLabel":"Ss"}, {"leftLabel":"D","left":16,"label":"Ds**c","right":17,"rightLabel":"Ds**c"}, {"leftLabel":"Ss*s","left":17,"label":"Ss*s","right":18,"rightLabel":"Ss"}, {"leftLabel":"SJr","left":15,"label":"SJrp","right":17,"rightLabel":"SJrp"}, {"leftLabel":"SJru","left":15,"label":"SJru","right":17,"rightLabel":"SJru"}, {"leftLabel":"SJrp","left":15,"label":"SJrp","right":17,"rightLabel":"SJrp"}, {"leftLabel":"SJrs","left":15,"label":"SJrs","right":17,"rightLabel":"SJrs"}, {"leftLabel":"SJr","left":15,"label":"SJrs","right":17,"rightLabel":"SJrs"}]
+		IsVerbPhrase [is.v affected.v-d by] null
+		IsNounPhrase [voltage.n-u changes.n-u] null
+		[.] [{"leftLabel":"Xp","left":0,"label":"Xp","right":23,"rightLabel":"Xp"}, {"leftLabel":"RW","left":23,"label":"RW","right":24,"rightLabel":"RW"}]
+	Observations
+		Good Parse
+		BUT
+			many membrane proteins
+			[many, Many.f]
+			So, Many got the AN code
+			That's twice where it didn't need the AN code
+			REALLY need to revisit that line 193 in LinkGrammarInterpreter
+				
+20200421
+	Now have all the interpreters -- A, B, ... shelled out
+	Each such interpreter is called when a leftLabel on a link
+	starts with its character or something nearby, e.g. @A
+	The issue is now: what to do when we get here?
+	The fact is this:
+		each parsed word can have many such links, meaning we
+		are firing lots of different links on the same term (Feature)
+	Given that the Feature is passed with each call to an interpreter
+		it can serve as its own computational blackboard
+	The first pass on A is failing to recognize and use the returned offset.
+		Really, must sequester OFFSET in the Feature, and not return it.
+		For each Feature,
+			run all links on it, and when it's over, see if it has an offset and newFeature
+		After change, got
+		[CO2[!<CAPITALIZED-WORDS>]] d5da95e7-85a1-4b8e-9676-db1777f3c37c 3b60d1d6-012c-49f0-887b-60cd92bafabc [{"leftLabel":"hWd","left":0,"label":"Wd","right":1,"rightLabel":"Wd"}, {"leftLabel":"Ss*s","left":1,"label":"Ss*s","right":2,"rightLabel":"Ss"}, {"leftLabel":"AN","left":1,"label":"AN","right":4,"rightLabel":"AN"}, {"leftLabel":"AN","left":1,"label":"AN","right":2,"rightLabel":"AN"}, {"leftLabel":"AN","left":1,"label":"AN","right":3,"rightLabel":"AN"}]
+		[causes.v, causes.n] b199d04e-45c5-4a56-9b7b-e7ba81d00f99 7aca8e2e-7aa1-4435-8685-a55794f3939c [{"leftLabel":"hWV","left":0,"label":"WV","right":2,"rightLabel":"dWV"}, {"leftLabel":"Ss*s","left":1,"label":"Ss*s","right":2,"rightLabel":"Ss"}, {"leftLabel":"O","left":2,"label":"Ou","right":4,"rightLabel":"Ou"}, {"leftLabel":"AN","left":2,"label":"AN","right":4,"rightLabel":"AN"}, {"leftLabel":"AN","left":1,"label":"AN","right":2,"rightLabel":"AN"}, {"leftLabel":"AN","left":2,"label":"AN","right":3,"rightLabel":"AN"}]
+		[climate.n change.n-u] null null null
+	OBSERVATIONS
+		Many codes form EXPECTATIONS of what is to follow, and where it lies
+			This means we need an expectation system
+			Expectations are against Features
+				When X has an expectation of Y
+				THEN Y needs to know about it
+					HOW does that help in interpretation?
+			S codes, for example can connect a Subject to its Verb
+		P codes can be problematic; for example
+			"is caused by"
+			"is" Pv connects it to "caused"
+			"caused" Pv connects it to "by"
+	[climate.n change.n-u] null
+	[is.v caused.v-d by] null
+	[CO2[!<CAPITALIZED-WORDS>]] [{"leftLabel":"J","left":5,"label":"Js","right":6,"rightLabel":"Js"}]
+	
+	2020-04-21 15:10:55 DEBUG LoggingPlatform:46 - XXX [some] [{"leftLabel":"D","left":1,"label":"Dmc","right":2,"rightLabel":"Dmc"}, {"leftLabel":"hWd","left":0,"label":"Wd","right":1,"rightLabel":"Wd"}, {"leftLabel":"S","left":1,"label":"Ss","right":6,"rightLabel":"Ss"}, {"leftLabel":"B","left":1,"label":"B*d","right":3,"rightLabel":"B*d"}, {"leftLabel":"R","left":1,"label":"Rn","right":2,"rightLabel":"Rn"}, {"leftLabel":"B","left":1,"label":"B*w","right":3,"rightLabel":"B*w"}]
+	[scientists.n] [{"leftLabel":"hWd","left":0,"label":"Wd","right":2,"rightLabel":"Wd"}, {"leftLabel":"Sp","left":2,"label":"Sp","right":3,"rightLabel":"Sp"}, {"leftLabel":"D","left":1,"label":"Dmc","right":2,"rightLabel":"Dmc"}, {"leftLabel":"R","left":1,"label":"Rn","right":2,"rightLabel":"Rn"}]
+	[believe.v] [{"leftLabel":"hWV","left":0,"label":"WV","right":3,"rightLabel":"dWV"}, {"leftLabel":"Sp","left":2,"label":"Sp","right":3,"rightLabel":"Sp"}, {"leftLabel":"TH","left":3,"label":"TH","right":4,"rightLabel":"TH"}, {"leftLabel":"CV","left":3,"label":"CV","right":6,"rightLabel":"dCV"}, {"leftLabel":"Ce","left":3,"label":"Ce","right":5,"rightLabel":"C"}, {"leftLabel":"O*n","left":3,"label":"Oun","right":8,"rightLabel":"Ou"}, {"leftLabel":"O","left":3,"label":"Os","right":5,"rightLabel":"Os"}, {"leftLabel":"O","left":3,"label":"Os","right":4,"rightLabel":"Os"}, {"leftLabel":"O","left":3,"label":"Ou","right":8,"rightLabel":"Ou"}, {"leftLabel":"O","left":3,"label":"Os","right":8,"rightLabel":"Os"}, {"leftLabel":"O","left":3,"label":"Os","right":7,"rightLabel":"Os"}, {"leftLabel":"B","left":1,"label":"B*d","right":3,"rightLabel":"B*d"}, {"leftLabel":"B","left":1,"label":"B*w","right":3,"rightLabel":"B*w"}]
+	[that.j-c, that.j-d, that.j-p] [{"leftLabel":"TH","left":3,"label":"TH","right":4,"rightLabel":"TH"}, {"leftLabel":"CV","left":4,"label":"CV","right":6,"rightLabel":"dCV"}, {"leftLabel":"Cet","left":4,"label":"Cet","right":5,"rightLabel":"C"}, {"leftLabel":"D*u","left":4,"label":"D*u","right":5,"rightLabel":"D"}, {"leftLabel":"O","left":3,"label":"Os","right":4,"rightLabel":"Os"}, {"leftLabel":"D*u","left":4,"label":"Dmu","right":8,"rightLabel":"Dmu"}, {"leftLabel":"D*u","left":4,"label":"Dsu*x","right":8,"rightLabel":"Ds**x"}, {"leftLabel":"D*u","left":4,"label":"Dsu*x","right":7,"rightLabel":"Ds**x"}]
+	[CO2[!<CAPITALIZED-WORDS>]] [{"leftLabel":"Cet","left":4,"label":"Cet","right":5,"rightLabel":"C"}, {"leftLabel":"Ss*s","left":5,"label":"Ss*s","right":6,"rightLabel":"Ss"}, {"leftLabel":"Ce","left":3,"label":"Ce","right":5,"rightLabel":"C"}, {"leftLabel":"D*u","left":4,"label":"D*u","right":5,"rightLabel":"D"}, {"leftLabel":"O","left":3,"label":"Os","right":5,"rightLabel":"Os"}, {"leftLabel":"AN","left":5,"label":"AN","right":8,"rightLabel":"AN"}, {"leftLabel":"AN","left":5,"label":"AN","right":7,"rightLabel":"AN"}, {"leftLabel":"AN","left":5,"label":"AN","right":6,"rightLabel":"AN"}]
+	[causes.v, causes.n] [{"leftLabel":"CV","left":4,"label":"CV","right":6,"rightLabel":"dCV"}, {"leftLabel":"Ss*s","left":5,"label":"Ss*s","right":6,"rightLabel":"Ss"}, {"leftLabel":"O","left":6,"label":"Ou","right":8,"rightLabel":"Ou"}, {"leftLabel":"CV","left":3,"label":"CV","right":6,"rightLabel":"dCV"}, {"leftLabel":"AN","left":6,"label":"AN","right":8,"rightLabel":"AN"}, {"leftLabel":"AN","left":6,"label":"AN","right":7,"rightLabel":"AN"}, {"leftLabel":"AN","left":5,"label":"AN","right":6,"rightLabel":"AN"}, {"leftLabel":"hWV","left":0,"label":"WV","right":6,"rightLabel":"dWV"}, {"leftLabel":"S","left":1,"label":"Ss","right":6,"rightLabel":"Ss"}]
+	[climate.n change.n-u] null
+	
+	[the] [{"leftLabel":"D","left":1,"label":"Ds","right":2,"rightLabel":"Ds"}]
+	[pandemic.n] [{"leftLabel":"hWa","left":0,"label":"Wa","right":2,"rightLabel":"Wa"}, {"leftLabel":"D","left":1,"label":"Ds","right":2,"rightLabel":"Ds"}, {"leftLabel":"Mf","left":2,"label":"Mf","right":3,"rightLabel":"Mf"}]
+	[of] [{"leftLabel":"Mf","left":2,"label":"Mf","right":3,"rightLabel":"Mf"}, {"leftLabel":"Jp","left":3,"label":"Jp","right":4,"rightLabel":"Jp"}]
+	[obesity.n-u] [{"leftLabel":"Jp","left":3,"label":"Jp","right":4,"rightLabel":"Jp"}, {"leftLabel":"MXs","left":4,"label":"MXs","right":9,"rightLabel":"MX"}]
+	[,] [{"leftLabel":"Xx","left":0,"label":"Xx","right":5,"rightLabel":"Xx"}, {"leftLabel":"Xx","left":5,"label":"Xx","right":13,"rightLabel":"Xx"}, {"leftLabel":"hWi","left":5,"label":"Wi","right":6,"rightLabel":"Wi"}, {"leftLabel":"Xd","left":5,"label":"Xd","right":9,"rightLabel":"Xd"}]
+	[type.v, type.n] [{"leftLabel":"hWi","left":5,"label":"Wi","right":6,"rightLabel":"Wi"}, {"leftLabel":"O","left":6,"label":"Os","right":9,"rightLabel":"Os"}, {"leftLabel":"NM","left":6,"label":"NMn","right":7,"rightLabel":"NMn"}, {"leftLabel":"AN","left":6,"label":"AN","right":9,"rightLabel":"AN"}, {"leftLabel":"AN","left":6,"label":"AN","right":8,"rightLabel":"AN"}]
+	[2 diabetes.n-u mellitus[!<LATIN-ADJ-WORDS>].a] null
+	[(] [{"leftLabel":"dXdp","left":10,"label":"Xdp","right":11,"rightLabel":"Xd"}]
+	[T2DM[!<CAPITALIZED-WORDS>]] [{"leftLabel":"MXs","left":9,"label":"MXs","right":11,"rightLabel":"MX"}, {"leftLabel":"dXdp","left":10,"label":"Xdp","right":11,"rightLabel":"Xd"}, {"leftLabel":"Xc","left":11,"label":"Xcp","right":12,"rightLabel":"dXcp"}, {"leftLabel":"Xc","left":11,"label":"Xca","right":12,"rightLabel":"Xca"}]
+	[)] [{"leftLabel":"Xc","left":11,"label":"Xcp","right":12,"rightLabel":"dXcp"}, {"leftLabel":"Xc","left":9,"label":"Xcp","right":12,"rightLabel":"dXcp"}, {"leftLabel":"Xc","left":11,"label":"Xca","right":12,"rightLabel":"Xca"}]
+	[and.ij] [{"leftLabel":"Xx","left":5,"label":"Xx","right":13,"rightLabel":"Xx"}, {"leftLabel":"hWV","left":13,"label":"WV","right":24,"rightLabel":"dWV"}, {"leftLabel":"Wdc","left":13,"label":"Wdc","right":17,"rightLabel":"Wd"}, {"leftLabel":"Xx","left":0,"label":"Xx","right":13,"rightLabel":"Xx"}]
+	[nonalcoholic[!<ADJ-WORDS>].a] [{"leftLabel":"A","left":14,"label":"A","right":16,"rightLabel":"A"}, {"leftLabel":"A","left":14,"label":"A","right":17,"rightLabel":"A"}]
+	[fatty.a] [{"leftLabel":"A","left":15,"label":"A","right":16,"rightLabel":"A"}, {"leftLabel":"A","left":15,"label":"A","right":17,"rightLabel":"A"}]
+	[liver.n-u disease.n-u] null
+	[(] [{"leftLabel":"dXdp","left":18,"label":"Xdp","right":19,"rightLabel":"Xd"}]
+	[NAFLD[!<ALL-UPPER>]] [{"leftLabel":"MXs","left":17,"label":"MXs","right":19,"rightLabel":"MX"}, {"leftLabel":"dXdp","left":18,"label":"Xdp","right":19,"rightLabel":"Xd"}, {"leftLabel":"Xc","left":19,"label":"Xcp","right":20,"rightLabel":"dXcp"}]
+	[)] [{"leftLabel":"Xc","left":19,"label":"Xcp","right":20,"rightLabel":"dXcp"}]
+	[has.v] [{"leftLabel":"Ss","left":17,"label":"Ss","right":21,"rightLabel":"Ss"}, {"leftLabel":"PP","left":21,"label":"PPf","right":23,"rightLabel":"PPf"}]
+	[frequently] [{"leftLabel":"Em","left":22,"label":"Em","right":23,"rightLabel":"E"}]
+	[been.v associated.v-d with] null
+	[dietary.a] [{"leftLabel":"A","left":26,"label":"A","right":27,"rightLabel":"A"}]
+	[intake.n-u] [{"leftLabel":"J","left":25,"label":"Ju","right":27,"rightLabel":"Ju"}, {"leftLabel":"A","left":26,"label":"A","right":27,"rightLabel":"A"}, {"leftLabel":"M","left":27,"label":"Mf","right":28,"rightLabel":"Mf"}, {"leftLabel":"M","left":27,"label":"Mp","right":28,"rightLabel":"Mp"}, {"leftLabel":"MXs","left":27,"label":"MXs","right":32,"rightLabel":"MX"}]
+	[of] [{"leftLabel":"M","left":27,"label":"Mf","right":28,"rightLabel":"Mf"}, {"leftLabel":"Jp","left":28,"label":"Jp","right":30,"rightLabel":"Jp"}, {"leftLabel":"M","left":27,"label":"Mp","right":28,"rightLabel":"Mp"}]
+	[saturated.v-d] [{"leftLabel":"A","left":29,"label":"A","right":30,"rightLabel":"A"}]
+	[fats.n] [{"leftLabel":"Jp","left":28,"label":"Jp","right":30,"rightLabel":"Jp"}, {"leftLabel":"A","left":29,"label":"A","right":30,"rightLabel":"A"}, {"leftLabel":"MXp","left":30,"label":"MXp","right":32,"rightLabel":"MX"}]
+	[(] [{"leftLabel":"dXdp","left":31,"label":"Xdp","right":32,"rightLabel":"Xd"}]
+	[1] [{"leftLabel":"MXp","left":30,"label":"MXp","right":32,"rightLabel":"MX"}, {"leftLabel":"dXdp","left":31,"label":"Xdp","right":32,"rightLabel":"Xd"}, {"leftLabel":"Xc","left":32,"label":"Xcp","right":33,"rightLabel":"dXcp"}, {"leftLabel":"MXs","left":27,"label":"MXs","right":32,"rightLabel":"MX"}]
+	[)] [{"leftLabel":"Xc","left":32,"label":"Xcp","right":33,"rightLabel":"dXcp"}]
+	[and.j-m] [{"leftLabel":"MV","left":24,"label":"MVp","right":34,"rightLabel":"MVp"}, {"leftLabel":"MJlp","left":25,"label":"MJlp","right":34,"rightLabel":"MJlp"}, {"leftLabel":"MJrp","left":34,"label":"MJrp","right":36,"rightLabel":"MJrp"}, {"leftLabel":"EBb","left":34,"label":"EBb","right":35,"rightLabel":"EB"}]
+	[specifically.e] [{"leftLabel":"EBb","left":34,"label":"EBb","right":35,"rightLabel":"EB"}]
+	[with] [{"leftLabel":"MJrp","left":34,"label":"MJrp","right":36,"rightLabel":"MJrp"}, {"leftLabel":"J","left":36,"label":"Ju","right":39,"rightLabel":"Ju"}]
+	[dietary.a] [{"leftLabel":"A","left":37,"label":"A","right":38,"rightLabel":"A"}, {"leftLabel":"A","left":37,"label":"A","right":39,"rightLabel":"A"}]
+	[palm.n oil.n-u] null
+	[(] [{"leftLabel":"dXdp","left":40,"label":"Xdp","right":41,"rightLabel":"Xd"}]
+	[PO.l] [{"leftLabel":"MXs","left":39,"label":"MXs","right":41,"rightLabel":"MX"}, {"leftLabel":"dXdp","left":40,"label":"Xdp","right":41,"rightLabel":"Xd"}, {"leftLabel":"Xc","left":41,"label":"Xcp","right":42,"rightLabel":"dXcp"}]
+	[)] [{"leftLabel":"Xc","left":41,"label":"Xcp","right":42,"rightLabel":"dXcp"}]
+	[(] [{"leftLabel":"dXdp","left":43,"label":"Xdp","right":44,"rightLabel":"Xd"}]
+	[2] [{"leftLabel":"MXs","left":39,"label":"MXs","right":44,"rightLabel":"MX"}, {"leftLabel":"dXdp","left":43,"label":"Xdp","right":44,"rightLabel":"Xd"}, {"leftLabel":"Xc","left":44,"label":"Xcp","right":45,"rightLabel":"dXcp"}]
+	[)] [{"leftLabel":"Xc","left":44,"label":"Xcp","right":45,"rightLabel":"dXcp"}]
+	[.] [{"leftLabel":"Xp","left":0,"label":"Xp","right":46,"rightLabel":"Xp"}, {"leftLabel":"RW","left":46,"label":"RW","right":47,"rightLabel":"RW"}]
+	
+	
+	TODO
+		DID Remove left and right links - not used
+		Deal with Capitalized-words --> noun
+		DID A is working for one case: now work on P for verb phrases
+		
+	Overall, today got us a system that can pluck out some noun and verb phrases. The results seem acceptable
+		but need some more test cases, and perhaps a bit more tweaking.
+	NEXT
+		Deal with Capitalized-Words as part of a finalizing step where we convert the output to 
+		JSON representations to pass on.

@@ -1,0 +1,75 @@
+Sentence: CO2 causes climate change.
+
+0 [LEFT-WALL] null 3b55c652-3a21-4356-acc8-e0f1bff63306 
+[{"leftLabel":"RW","left":0,"label":"RW","right":5,"rightLabel":"RW"},
+ {"leftLabel":"hWV","left":0,"label":"WV","right":2,"rightLabel":"dWV"},
+ {"leftLabel":"hWd","left":0,"label":"Wd","right":1,"rightLabel":"Wd"},
+ 	Wd Says a Declarative sentence follows the wall
+ {"leftLabel":"hWa","left":0,"label":"Wa","right":4,"rightLabel":"Wa"}]
+ 	Wa connects null verb sentences to the wall
+ 	here, it is connecting the wall to change - covering the entire sentence
+ 	that makes no sense because there is a verb here
+
+1 [CO2[!<CAPITALIZED-WORDS>]] 5de78da5-953d-4d7e-beb0-91c0bc058de9 2ecb8f7f-e73b-41b6-ad7c-041e2285d312
+[{"leftLabel":"hWd","left":0,"label":"Wd","right":1,"rightLabel":"Wd"},
+ {"leftLabel":"Ss*s","left":1,"label":"Ss*s","right":2,"rightLabel":"Ss"},
+ 	S connects noun to verb SS indicates noun-verb agreement CO2 causes
+ 	This establishes causes as The Verb in this sentence
+ {"leftLabel":"AN","left":1,"label":"AN","right":4,"rightLabel":"AN"},
+ 	says CO2 is a noun modifier to change
+ 	but CO2 is followed by a verb
+ {"leftLabel":"AN","left":1,"label":"AN","right":2,"rightLabel":"AN"},
+ 	says CO2 is a noun modifier to causes
+ 	but causes has a Verb sense and it is a verb following a noun
+ {"leftLabel":"AN","left":1,"label":"AN","right":3,"rightLabel":"AN"}]
+ 	says CO2 is a noun modifier to climate
+ 	but CO2 is separated from climate by a verb
+
+2 [causes.v, causes.n] 3b55c652-3a21-4356-acc8-e0f1bff63306 9139f367-72d8-445a-b03d-ab9459134760
+[{"leftLabel":"hWV","left":0,"label":"WV","right":2,"rightLabel":"dWV"},
+	WV connects the wall to the head verb -- causes
+ {"leftLabel":"Ss*s","left":1,"label":"Ss*s","right":2,"rightLabel":"Ss"},
+ 	S connects noun to verb CO2 causes
+ {"leftLabel":"O","left":2,"label":"Ou","right":4,"rightLabel":"Ou"},
+ 	O connects a transitive verb causes to its object change
+ 	we will see that change goes with climate, so this establishes the relationship
+ 	between verb and its object
+ {"leftLabel":"AN","left":2,"label":"AN","right":4,"rightLabel":"AN"},
+ 	says causes is a noun modifier to change
+ 	causes has a noun sense - that's true
+ 	but causes is already a verb following a noun
+ 	Seems we need lexical rules here
+ {"leftLabel":"AN","left":1,"label":"AN","right":2,"rightLabel":"AN"},
+ 	says CO2 is a noun modifier to causes
+ 	causes has a noun sense but it is needed as a verb
+ {"leftLabel":"AN","left":2,"label":"AN","right":3,"rightLabel":"AN"}]
+ 	says change is a noun modifier to climate
+ 	both have noun senses and there is no lexical reason not to choose them
+
+3 [climate.n] 2ecb8f7f-e73b-41b6-ad7c-041e2285d312 1f0507e2-f910-4fd9-821e-1f761109a848
+[{"leftLabel":"AN","left":3,"label":"AN","right":4,"rightLabel":"AN"},
+	says climate is noun modifier to change --> climate change
+ {"leftLabel":"AN","left":1,"label":"AN","right":3,"rightLabel":"AN"},
+ 	says CO2 is a noun modifier to climate
+ 	Sure but CO2 is already followed by a verb
+ {"leftLabel":"AN","left":2,"label":"AN","right":3,"rightLabel":"AN"}]
+ 	says causes is noun modifier to climate
+ 	causes is already a verb
+
+4 [change.n-u, change.s] 9139f367-72d8-445a-b03d-ab9459134760 null
+[{"leftLabel":"O","left":2,"label":"Ou","right":4,"rightLabel":"Ou"},
+	says
+{"leftLabel":"AN","left":3,"label":"AN","right":4,"rightLabel":"AN"},
+	says climate is a noun modifier to change --> climate change  2 votes
+{"leftLabel":"hWa","left":0,"label":"Wa","right":4,"rightLabel":"Wa"},
+{"leftLabel":"AN","left":1,"label":"AN","right":4,"rightLabel":"AN"},
+	says CO2 is a noun modifier to change
+	been here before: CO2 is already followed by a verb
+{"leftLabel":"AN","left":2,"label":"AN","right":4,"rightLabel":"AN"}]
+	says causes is a noun modifier to change
+	causes already chosen as a verb
+We see 2 votes for climate change where both are some variant of a noun
+
+
+5 [RIGHT-WALL] null null
+[{"leftLabel":"RW","left":0,"label":"RW","right":5,"rightLabel":"RW"}]

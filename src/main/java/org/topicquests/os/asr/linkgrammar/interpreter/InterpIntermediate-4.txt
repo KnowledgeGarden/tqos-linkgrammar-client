@@ -1,0 +1,44 @@
+Sentence Some scientists believe that CO2 causes climate change
+RAW
+[LEFT-WALL] 
+[{"leftLabel":"RW","left":0,"label":"RW","right":9,"rightLabel":"RW"}, {"leftLabel":"hWV","left":0,"label":"WV","right":3,"rightLabel":"dWV"}, {"leftLabel":"hWd","left":0,"label":"Wd","right":2,"rightLabel":"Wd"}, {"leftLabel":"hWV","left":0,"label":"WV","right":6,"rightLabel":"dWV"}, {"leftLabel":"hWd","left":0,"label":"Wd","right":1,"rightLabel":"Wd"}]
+
+[some] 
+[{"leftLabel":"D","left":1,"label":"Dmc","right":2,"rightLabel":"Dmc"}, 
+ {"leftLabel":"hWd","left":0,"label":"Wd","right":1,"rightLabel":"Wd"}, 
+ {"leftLabel":"S","left":1,"label":"Ss","right":6,"rightLabel":"Ss"}, 
+ {"leftLabel":"B","left":1,"label":"B*d","right":3,"rightLabel":"B*d"}, 
+ {"leftLabel":"R","left":1,"label":"Rn","right":2,"rightLabel":"Rn"}, 
+ {"leftLabel":"B","left":1,"label":"B*w","right":3,"rightLabel":"B*w"}]
+
+[scientists.n] 
+[{"leftLabel":"hWd","left":0,"label":"Wd","right":2,"rightLabel":"Wd"}, 
+ {"leftLabel":"Sp","left":2,"label":"Sp","right":3,"rightLabel":"Sp"}, 
+ {"leftLabel":"D","left":1,"label":"Dmc","right":2,"rightLabel":"Dmc"}, 
+ {"leftLabel":"R","left":1,"label":"Rn","right":2,"rightLabel":"Rn"}]
+
+[believe.v] 
+[{"leftLabel":"hWV","left":0,"label":"WV","right":3,"rightLabel":"dWV"}, {"leftLabel":"Sp","left":2,"label":"Sp","right":3,"rightLabel":"Sp"}, {"leftLabel":"TH","left":3,"label":"TH","right":4,"rightLabel":"TH"}, {"leftLabel":"CV","left":3,"label":"CV","right":6,"rightLabel":"dCV"}, {"leftLabel":"Ce","left":3,"label":"Ce","right":5,"rightLabel":"C"}, {"leftLabel":"O*n","left":3,"label":"Oun","right":8,"rightLabel":"Ou"}, {"leftLabel":"O","left":3,"label":"Os","right":5,"rightLabel":"Os"}, {"leftLabel":"O","left":3,"label":"Os","right":4,"rightLabel":"Os"}, {"leftLabel":"O","left":3,"label":"Ou","right":8,"rightLabel":"Ou"}, {"leftLabel":"O","left":3,"label":"Os","right":8,"rightLabel":"Os"}, {"leftLabel":"O","left":3,"label":"Os","right":7,"rightLabel":"Os"}, {"leftLabel":"B","left":1,"label":"B*d","right":3,"rightLabel":"B*d"}, {"leftLabel":"B","left":1,"label":"B*w","right":3,"rightLabel":"B*w"}]
+
+[that.j-c] 
+[{"leftLabel":"TH","left":3,"label":"TH","right":4,"rightLabel":"TH"}, {"leftLabel":"CV","left":4,"label":"CV","right":6,"rightLabel":"dCV"}, {"leftLabel":"Cet","left":4,"label":"Cet","right":5,"rightLabel":"C"}, {"leftLabel":"D*u","left":4,"label":"D*u","right":5,"rightLabel":"D"}, {"leftLabel":"O","left":3,"label":"Os","right":4,"rightLabel":"Os"}, {"leftLabel":"D*u","left":4,"label":"Dmu","right":8,"rightLabel":"Dmu"}, {"leftLabel":"D*u","left":4,"label":"Dsu*x","right":8,"rightLabel":"Ds**x"}, {"leftLabel":"D*u","left":4,"label":"Dsu*x","right":7,"rightLabel":"Ds**x"}]
+
+[CO2[!<CAPITALIZED-WORDS>]] [{"leftLabel":"Cet","left":4,"label":"Cet","right":5,"rightLabel":"C"}, {"leftLabel":"Ss*s","left":5,"label":"Ss*s","right":6,"rightLabel":"Ss"}, {"leftLabel":"Ce","left":3,"label":"Ce","right":5,"rightLabel":"C"}, {"leftLabel":"D*u","left":4,"label":"D*u","right":5,"rightLabel":"D"}, {"leftLabel":"O","left":3,"label":"Os","right":5,"rightLabel":"Os"}, {"leftLabel":"AN","left":5,"label":"AN","right":8,"rightLabel":"AN"}, {"leftLabel":"AN","left":5,"label":"AN","right":7,"rightLabel":"AN"}, {"leftLabel":"AN","left":5,"label":"AN","right":6,"rightLabel":"AN"}]
+
+[causes.v] 
+[{"leftLabel":"CV","left":4,"label":"CV","right":6,"rightLabel":"dCV"}, {"leftLabel":"Ss*s","left":5,"label":"Ss*s","right":6,"rightLabel":"Ss"}, {"leftLabel":"O","left":6,"label":"Ou","right":8,"rightLabel":"Ou"}, {"leftLabel":"CV","left":3,"label":"CV","right":6,"rightLabel":"dCV"}, {"leftLabel":"AN","left":6,"label":"AN","right":8,"rightLabel":"AN"}, {"leftLabel":"AN","left":6,"label":"AN","right":7,"rightLabel":"AN"}, {"leftLabel":"AN","left":5,"label":"AN","right":6,"rightLabel":"AN"}, {"leftLabel":"hWV","left":0,"label":"WV","right":6,"rightLabel":"dWV"}, {"leftLabel":"S","left":1,"label":"Ss","right":6,"rightLabel":"Ss"}]
+
+[climate.n] 
+[{"leftLabel":"AN","left":7,"label":"AN","right":8,"rightLabel":"AN"}, {"leftLabel":"O","left":3,"label":"Os","right":7,"rightLabel":"Os"}, {"leftLabel":"D*u","left":4,"label":"Dsu*x","right":7,"rightLabel":"Ds**x"}, {"leftLabel":"AN","left":5,"label":"AN","right":7,"rightLabel":"AN"}, {"leftLabel":"AN","left":6,"label":"AN","right":7,"rightLabel":"AN"}]
+
+[change.n-u] 
+[{"leftLabel":"O","left":6,"label":"Ou","right":8,"rightLabel":"Ou"}, {"leftLabel":"AN","left":7,"label":"AN","right":8,"rightLabel":"AN"}, {"leftLabel":"O*n","left":3,"label":"Oun","right":8,"rightLabel":"Ou"}, {"leftLabel":"AN","left":6,"label":"AN","right":8,"rightLabel":"AN"}, {"leftLabel":"AN","left":5,"label":"AN","right":8,"rightLabel":"AN"}, {"leftLabel":"O","left":3,"label":"Ou","right":8,"rightLabel":"Ou"}, {"leftLabel":"D*u","left":4,"label":"Dmu","right":8,"rightLabel":"Dmu"}, {"leftLabel":"O","left":3,"label":"Os","right":8,"rightLabel":"Os"}, {"leftLabel":"D*u","left":4,"label":"Dsu*x","right":8,"rightLabel":"Ds**x"}]
+
+[RIGHT-WALL] 
+[{"leftLabel":"RW","left":0,"label":"RW","right":9,"rightLabel":"RW"}]
+
+PARSE
+IsDeterminer [some] [{"leftLabel":"D","left":1,"label":"Dmc","right":2,"rightLabel":"Dmc"}, {"leftLabel":"hWd","left":0,"label":"Wd","right":1,"rightLabel":"Wd"}, {"leftLabel":"S","left":1,"label":"Ss","right":6,"rightLabel":"Ss"}, {"leftLabel":"B","left":1,"label":"B*d","right":3,"rightLabel":"B*d"}, {"leftLabel":"R","left":1,"label":"Rn","right":2,"rightLabel":"Rn"}, {"leftLabel":"B","left":1,"label":"B*w","right":3,"rightLabel":"B*w"}]
+[scientists.n] [{"leftLabel":"hWd","left":0,"label":"Wd","right":2,"rightLabel":"Wd"}, {"leftLabel":"Sp","left":2,"label":"Sp","right":3,"rightLabel":"Sp"}, {"leftLabel":"D","left":1,"label":"Dmc","right":2,"rightLabel":"Dmc"}, {"leftLabel":"R","left":1,"label":"Rn","right":2,"rightLabel":"Rn"}]
+IsNoun [believe.v believe.v that.j-c CO2[!<CAPITALIZED-WORDS>]] null
+IsNoun [climate.n change.n-u] null

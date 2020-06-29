@@ -1,2 +1,2 @@
 # tqos-linkgrammar-client
-TCP client for the LinkGrammar Parser
+Optional TCP client for the LinkGrammar Parser; can be used directly

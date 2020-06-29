@@ -1,0 +1,26 @@
+Sentence: colorless green ideas sleep furiously.
+
+[LEFT-WALL] [{"leftLabel":"Xp","left":0,"label":"Xp","right":6,"rightLabel":"Xp"}, {"leftLabel":"hWV","left":0,"label":"WV","right":4,"rightLabel":"dWV"}, {"leftLabel":"hWd","left":0,"label":"Wd","right":3,"rightLabel":"Wd"}]
+
+[colorless.a] [{"leftLabel":"A","left":1,"label":"A","right":3,"rightLabel":"A"}, {"leftLabel":"A","left":1,"label":"A","right":2,"rightLabel":"A"}]
+
+[green.a] [{"leftLabel":"A","left":2,"label":"A","right":3,"rightLabel":"A"}, {"leftLabel":"A","left":1,"label":"A","right":2,"rightLabel":"A"}]
+
+[ideas.n] [{"leftLabel":"hWd","left":0,"label":"Wd","right":3,"rightLabel":"Wd"}, {"leftLabel":"Sp*t","left":3,"label":"Sp*t","right":4,"rightLabel":"Sp"}, {"leftLabel":"A","left":1,"label":"A","right":3,"rightLabel":"A"}, {"leftLabel":"A","left":2,"label":"A","right":3,"rightLabel":"A"}]
+
+[sleep.v] [{"leftLabel":"hWV","left":0,"label":"WV","right":4,"rightLabel":"dWV"}, {"leftLabel":"Sp*t","left":3,"label":"Sp*t","right":4,"rightLabel":"Sp"}, {"leftLabel":"MV","left":4,"label":"MVa","right":5,"rightLabel":"MVa"}]
+
+[furiously] [{"leftLabel":"MV","left":4,"label":"MVa","right":5,"rightLabel":"MVa"}]
+
+[.] [{"leftLabel":"Xp","left":0,"label":"Xp","right":6,"rightLabel":"Xp"}, {"leftLabel":"RW","left":6,"label":"RW","right":7,"rightLabel":"RW"}]
+
+[RIGHT-WALL] [{"leftLabel":"RW","left":6,"label":"RW","right":7,"rightLabel":"RW"}]
+
+
+
+[colorless.a] [{"leftLabel":"A","left":1,"label":"A","right":3,"rightLabel":"A"}, {"leftLabel":"A","left":1,"label":"A","right":2,"rightLabel":"A"}]
+[green.a] [{"leftLabel":"A","left":2,"label":"A","right":3,"rightLabel":"A"}, {"leftLabel":"A","left":1,"label":"A","right":2,"rightLabel":"A"}]
+[ideas.n] [{"leftLabel":"hWd","left":0,"label":"Wd","right":3,"rightLabel":"Wd"}, {"leftLabel":"Sp*t","left":3,"label":"Sp*t","right":4,"rightLabel":"Sp"}, {"leftLabel":"A","left":1,"label":"A","right":3,"rightLabel":"A"}, {"leftLabel":"A","left":2,"label":"A","right":3,"rightLabel":"A"}]
+[sleep.v] [{"leftLabel":"hWV","left":0,"label":"WV","right":4,"rightLabel":"dWV"}, {"leftLabel":"Sp*t","left":3,"label":"Sp*t","right":4,"rightLabel":"Sp"}, {"leftLabel":"MV","left":4,"label":"MVa","right":5,"rightLabel":"MVa"}]
+[furiously] [{"leftLabel":"MV","left":4,"label":"MVa","right":5,"rightLabel":"MVa"}]
+[.] [{"leftLabel":"Xp","left":0,"label":"Xp","right":6,"rightLabel":"Xp"}, {"leftLabel":"RW","left":6,"label":"RW","right":7,"rightLabel":"RW"}]

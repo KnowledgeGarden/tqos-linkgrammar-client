@@ -1,0 +1,139 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.topicquests</groupId>
+    <artifactId>tqos-linkgrammar-client</artifactId>
+    <version>0.2.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>tqos-linkgrammar-client</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <blueprints.version>2.6.0</blueprints.version>
+    </properties>
+	<developers>
+		<developer>
+			<name>Jack Park</name>
+			<email>jackpark@topicquests.org</email>
+		</developer>
+	</developers>
+
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+         <!--   required for jdk > 1.8 -->
+       <plugin>
+       		<groupId>org.apache.maven.plugins</groupId>
+       		<artifactId>maven-compiler-plugin</artifactId>
+       		<configuration>
+           		<source>1.6</source>
+           		<target>1.6</target>
+       		</configuration>
+		</plugin>
+		<plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+            	<groupId>org.codehaus.mojo</groupId>
+				<artifactId>appassembler-maven-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>assemble</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<extraJvmArguments>
+						-Djava.library.path=/usr/lib:/usr/lib/jni:/usr/local/lib:/usr/local/lib/jni
+						-Drelex.algpath=data/relex-semantic.algs
+						-Dwordnet.configfile=data/wordnet/file_properties.xml
+					</extraJvmArguments>
+					<programs>
+						<program>
+							<id>relexd</id>
+							<mainClass>relex.Server</mainClass>
+							<jvmSettings>
+								<maxMemorySize>1024m</maxMemorySize>
+							</jvmSettings>
+						</program>
+						<program>
+							<!-- This will return parsed text on the input socket. -->
+							<id>relexd-relex</id>
+							<mainClass>relex.Server</mainClass>
+							<jvmSettings>
+								<maxMemorySize>1024m</maxMemorySize>
+							</jvmSettings>
+							<commandLineArguments>
+								<commandLineArgument>--relex</commandLineArgument>
+							</commandLineArguments>
+						</program>
+						<program>
+							<!-- Return with Link Grammar and Relex output on default port 4444. -->
+							<id>relexd-link</id>
+							<mainClass>relex.Server</mainClass>
+							<jvmSettings>
+								<maxMemorySize>1024m</maxMemorySize>
+							</jvmSettings>
+							<commandLineArguments>
+								<commandLineArgument>--relex --link</commandLineArgument>
+							</commandLineArguments>
+						</program>
+					</programs>
+				</configuration>
+			</plugin>
+        </plugins>
+        <resources>
+			<resource>
+				<targetPath>./</targetPath>
+				<filtering>false</filtering>
+				<directory>${basedir}/data</directory>
+				<includes>
+					<include>relex-penn-tagging-algs.txt</include>
+					<include>relex-semantic-algs.txt</include>
+					<include>relex-stanford-algs.txt</include>
+					<include>relex-tagging-algs.txt</include>
+				</includes>
+			</resource>
+			<resource>
+				<targetPath>./</targetPath>
+				<filtering>false</filtering>
+				<directory>${basedir}/data/wordnet</directory>
+				<includes>
+					<include>file_properties.xml</include>
+				</includes>
+			</resource>
+			<resource>
+				<targetPath>./</targetPath>
+				<filtering>false</filtering>
+				<directory>${basedir}/data/sentence-detector</directory>
+				<includes>
+					<include>EnglishSD.bin.gz</include>
+				</includes>
+			</resource>
+		</resources>
+    </build>
+    <dependencies>
+    	<dependency>
+    		<groupId>org.topicquests</groupId>
+    		<artifactId>tq-support</artifactId>
+    		<version>1.9.0-SNAPSHOT</version>
+    	</dependency>
+    </dependencies>
+</project>

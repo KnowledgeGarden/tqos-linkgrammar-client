@@ -1,0 +1,100 @@
+Sentence
+	Many membrane proteins sense the voltage across the membrane where they are inserted, and their function is affected by voltage changes.
+	
+RAW
+[LEFT-WALL] 
+[{"leftLabel":"Xp","left":0,"label":"Xp","right":23,"rightLabel":"Xp"}, {"leftLabel":"Xx","left":0,"label":"Xx","right":15,"rightLabel":"Xx"}, {"leftLabel":"hWV","left":0,"label":"WV","right":4,"rightLabel":"dWV"}, {"leftLabel":"hWd","left":0,"label":"Wd","right":3,"rightLabel":"Wd"}, {"leftLabel":"hWV","left":0,"label":"WV","right":19,"rightLabel":"dWV"}, {"leftLabel":"hWd","left":0,"label":"Wd","right":2,"rightLabel":"Wd"}]
+
+[many] 
+[{"leftLabel":"Dmc","left":1,"label":"Dmc","right":3,"rightLabel":"Dmc"}, 
+	This is a determiner
+ {"leftLabel":"AN","left":1,"label":"AN","right":2,"rightLabel":"AN"}, 
+ {"leftLabel":"AN","left":1,"label":"AN","right":3,"rightLabel":"AN"}]
+
+[membrane.n-u] 
+[{"leftLabel":"AN","left":2,"label":"AN","right":3,"rightLabel":"AN"}, 
+ {"leftLabel":"AN","left":1,"label":"AN","right":2,"rightLabel":"AN"}, 
+ {"leftLabel":"hWd","left":0,"label":"Wd","right":2,"rightLabel":"Wd"}, 
+ {"leftLabel":"Ss","left":2,"label":"Ss","right":18,"rightLabel":"Ss"}, 
+ {"leftLabel":"Bs","left":2,"label":"Bsd","right":4,"rightLabel":"B*d"}, 
+ {"leftLabel":"R","left":2,"label":"Rn","right":3,"rightLabel":"Rn"}]
+
+[proteins.n] 
+[{"leftLabel":"hWd","left":0,"label":"Wd","right":3,"rightLabel":"Wd"}, 
+ {"leftLabel":"Sp","left":3,"label":"Sp","right":4,"rightLabel":"Sp"}, 
+ {"leftLabel":"Dmc","left":1,"label":"Dmc","right":3,"rightLabel":"Dmc"}, 
+ {"leftLabel":"AN","left":2,"label":"AN","right":3,"rightLabel":"AN"}, 
+ {"leftLabel":"AN","left":1,"label":"AN","right":3,"rightLabel":"AN"}, 
+ {"leftLabel":"R","left":2,"label":"Rn","right":3,"rightLabel":"Rn"}]
+
+[sense.v] 
+[{"leftLabel":"hWV","left":0,"label":"WV","right":4,"rightLabel":"dWV"}, 
+ {"leftLabel":"Sp","left":3,"label":"Sp","right":4,"rightLabel":"Sp"}, 
+ {"leftLabel":"MV","left":4,"label":"MVp","right":10,"rightLabel":"MVp"}, 
+ {"leftLabel":"MV","left":4,"label":"MVp","right":7,"rightLabel":"MVp"}, 
+ {"leftLabel":"O","left":4,"label":"Os","right":6,"rightLabel":"Os"},
+ 	Os means 6 is singular noun
+ {"leftLabel":"O","left":4,"label":"Ou","right":6,"rightLabel":"Ou"}, 
+ 	Ou documentation not found
+ {"leftLabel":"CV","left":4,"label":"CV","right":19,"rightLabel":"dCV"}, 
+ {"leftLabel":"Ce","left":4,"label":"Ce","right":6,"rightLabel":"C"}, 
+ {"leftLabel":"Bs","left":2,"label":"Bsd","right":4,"rightLabel":"B*d"}]
+
+[the] [{"leftLabel":"D","left":5,"label":"Ds**c","right":6,"rightLabel":"Ds**c"}, {"leftLabel":"D","left":5,"label":"Dmu","right":6,"rightLabel":"Dmu"}]
+
+[voltage.s] [{"leftLabel":"O","left":4,"label":"Os","right":6,"rightLabel":"Os"}, {"leftLabel":"M","left":6,"label":"Mp","right":7,"rightLabel":"Mp"}, {"leftLabel":"D","left":5,"label":"Ds**c","right":6,"rightLabel":"Ds**c"}, {"leftLabel":"O","left":4,"label":"Ou","right":6,"rightLabel":"Ou"}, {"leftLabel":"D","left":5,"label":"Dmu","right":6,"rightLabel":"Dmu"}, {"leftLabel":"Ce","left":4,"label":"Ce","right":6,"rightLabel":"C"}, {"leftLabel":"Ss","left":6,"label":"Ss","right":18,"rightLabel":"Ss"}, {"leftLabel":"Ss*s","left":6,"label":"Ss*s","right":18,"rightLabel":"Ss"}, {"leftLabel":"M","left":6,"label":"Mp","right":10,"rightLabel":"Mp"}]
+
+[across] [{"leftLabel":"MV","left":4,"label":"MVp","right":7,"rightLabel":"MVp"}, {"leftLabel":"M","left":6,"label":"Mp","right":7,"rightLabel":"Mp"}, {"leftLabel":"J","left":7,"label":"Ju","right":9,"rightLabel":"Ju"}, {"leftLabel":"J","left":7,"label":"Js","right":9,"rightLabel":"Js"}, {"leftLabel":"J","left":7,"label":"Ju","right":15,"rightLabel":"Ju"}]
+
+[the] [{"leftLabel":"D","left":8,"label":"Dmu","right":9,"rightLabel":"Dmu"}, {"leftLabel":"D","left":8,"label":"Ds**c","right":9,"rightLabel":"Ds**c"}]
+
+[membrane.n-u] [{"leftLabel":"J","left":7,"label":"Ju","right":9,"rightLabel":"Ju"}, {"leftLabel":"M","left":9,"label":"Mp","right":10,"rightLabel":"Mp"}, {"leftLabel":"D","left":8,"label":"Dmu","right":9,"rightLabel":"Dmu"}, {"leftLabel":"J","left":7,"label":"Js","right":9,"rightLabel":"Js"}, {"leftLabel":"D","left":8,"label":"Ds**c","right":9,"rightLabel":"Ds**c"}, {"leftLabel":"SJlu","left":9,"label":"SJlu","right":15,"rightLabel":"SJlu"}, {"leftLabel":"Mp","left":9,"label":"Mp","right":10,"rightLabel":"Mp"}, {"leftLabel":"SJls","left":9,"label":"SJls","right":15,"rightLabel":"SJls"}, {"leftLabel":"SJlp","left":9,"label":"SJlp","right":15,"rightLabel":"SJlp"}, {"leftLabel":"M","left":9,"label":"Mv","right":13,"rightLabel":"Mv"}]
+
+[where] [{"leftLabel":"MV","left":4,"label":"MVp","right":10,"rightLabel":"MVp"}, {"leftLabel":"M","left":9,"label":"Mp","right":10,"rightLabel":"Mp"}, {"leftLabel":"CV","left":10,"label":"CV","right":13,"rightLabel":"CV"}, {"leftLabel":"Cs","left":10,"label":"Cs","right":11,"rightLabel":"C"}, {"leftLabel":"Mp","left":9,"label":"Mp","right":10,"rightLabel":"Mp"}, {"leftLabel":"CV","left":10,"label":"CV","right":12,"rightLabel":"dCV"}, {"leftLabel":"M","left":6,"label":"Mp","right":10,"rightLabel":"Mp"}, {"leftLabel":"CV","left":10,"label":"CV","right":13,"rightLabel":"dCV"}]
+
+[they] [{"leftLabel":"Cs","left":10,"label":"Cs","right":11,"rightLabel":"C"}, {"leftLabel":"Sp","left":11,"label":"Spx","right":12,"rightLabel":"Spx"}]
+
+[are.v] [{"leftLabel":"Sp","left":11,"label":"Spx","right":12,"rightLabel":"Spx"}, {"leftLabel":"Pv","left":12,"label":"Pv","right":13,"rightLabel":"Pv"}, {"leftLabel":"CV","left":10,"label":"CV","right":12,"rightLabel":"dCV"}, {"leftLabel":"Pa","left":12,"label":"Pa","right":13,"rightLabel":"Pa"}]
+
+[inserted.v-d] [{"leftLabel":"CV","left":10,"label":"CV","right":13,"rightLabel":"CV"}, {"leftLabel":"Pv","left":12,"label":"Pv","right":13,"rightLabel":"Pv"}, {"leftLabel":"Xc","left":13,"label":"Xca","right":14,"rightLabel":"Xca"}, {"leftLabel":"Xc","left":13,"label":"Xc","right":14,"rightLabel":"Xc"}, {"leftLabel":"Pa","left":12,"label":"Pa","right":13,"rightLabel":"Pa"}, {"leftLabel":"CV","left":10,"label":"CV","right":13,"rightLabel":"dCV"}, {"leftLabel":"M","left":9,"label":"Mv","right":13,"rightLabel":"Mv"}]
+
+[,] [{"leftLabel":"Xd","left":14,"label":"Xd","right":15,"rightLabel":"Xd"}, {"leftLabel":"Xc","left":13,"label":"Xca","right":14,"rightLabel":"Xca"}, {"leftLabel":"Xc","left":13,"label":"Xc","right":14,"rightLabel":"Xc"}]
+
+[and.ij] [{"leftLabel":"Xx","left":0,"label":"Xx","right":15,"rightLabel":"Xx"}, {"leftLabel":"Xd","left":14,"label":"Xd","right":15,"rightLabel":"Xd"}, {"leftLabel":"hWV","left":15,"label":"WV","right":19,"rightLabel":"dWV"}, {"leftLabel":"Wdc","left":15,"label":"Wdc","right":17,"rightLabel":"Wd"}, {"leftLabel":"J","left":7,"label":"Ju","right":15,"rightLabel":"Ju"}, {"leftLabel":"SJlu","left":9,"label":"SJlu","right":15,"rightLabel":"SJlu"}, {"leftLabel":"SJr","left":15,"label":"SJrp","right":17,"rightLabel":"SJrp"}, {"leftLabel":"SJls","left":9,"label":"SJls","right":15,"rightLabel":"SJls"}, {"leftLabel":"SJru","left":15,"label":"SJru","right":17,"rightLabel":"SJru"}, {"leftLabel":"SJrp","left":15,"label":"SJrp","right":17,"rightLabel":"SJrp"}, {"leftLabel":"SJlp","left":9,"label":"SJlp","right":15,"rightLabel":"SJlp"}, {"leftLabel":"SJrs","left":15,"label":"SJrs","right":17,"rightLabel":"SJrs"}]
+
+[their.p] [{"leftLabel":"D","left":16,"label":"Ds**c","right":17,"rightLabel":"Ds**c"}, {"leftLabel":"D","left":16,"label":"Dmu","right":17,"rightLabel":"Dmu"}]
+
+[function.n] [{"leftLabel":"Wdc","left":15,"label":"Wdc","right":17,"rightLabel":"Wd"}, {"leftLabel":"D","left":16,"label":"Ds**c","right":17,"rightLabel":"Ds**c"}, {"leftLabel":"Ss*s","left":17,"label":"Ss*s","right":18,"rightLabel":"Ss"}, {"leftLabel":"D","left":16,"label":"Dmu","right":17,"rightLabel":"Dmu"}, {"leftLabel":"Ss","left":17,"label":"Ss","right":18,"rightLabel":"Ss"}, {"leftLabel":"SJr","left":15,"label":"SJrp","right":17,"rightLabel":"SJrp"}, {"leftLabel":"SJru","left":15,"label":"SJru","right":17,"rightLabel":"SJru"}, {"leftLabel":"SJrp","left":15,"label":"SJrp","right":17,"rightLabel":"SJrp"}, {"leftLabel":"SJrs","left":15,"label":"SJrs","right":17,"rightLabel":"SJrs"}]
+
+[is.v] [{"leftLabel":"Ss*s","left":17,"label":"Ss*s","right":18,"rightLabel":"Ss"}, {"leftLabel":"Pv","left":18,"label":"Pv","right":19,"rightLabel":"Pv"}, {"leftLabel":"Ss","left":17,"label":"Ss","right":18,"rightLabel":"Ss"}, {"leftLabel":"Ss","left":6,"label":"Ss","right":18,"rightLabel":"Ss"}, {"leftLabel":"Ss*s","left":6,"label":"Ss*s","right":18,"rightLabel":"Ss"}, {"leftLabel":"Ss","left":2,"label":"Ss","right":18,"rightLabel":"Ss"}]
+
+[affected.v-d] [{"leftLabel":"hWV","left":15,"label":"WV","right":19,"rightLabel":"dWV"}, {"leftLabel":"Pv","left":18,"label":"Pv","right":19,"rightLabel":"Pv"}, {"leftLabel":"MV","left":19,"label":"MVp","right":20,"rightLabel":"MVp"}, {"leftLabel":"CV","left":4,"label":"CV","right":19,"rightLabel":"dCV"}, {"leftLabel":"hWV","left":0,"label":"WV","right":19,"rightLabel":"dWV"}]
+
+[by] [{"leftLabel":"MV","left":19,"label":"MVp","right":20,"rightLabel":"MVp"}, {"leftLabel":"J","left":20,"label":"Jp","right":22,"rightLabel":"Jp"}, {"leftLabel":"J","left":20,"label":"Ju","right":22,"rightLabel":"Ju"}]
+
+[voltage.n-u] [{"leftLabel":"AN","left":21,"label":"AN","right":22,"rightLabel":"AN"}]
+
+[changes.n] [{"leftLabel":"J","left":20,"label":"Jp","right":22,"rightLabel":"Jp"}, {"leftLabel":"AN","left":21,"label":"AN","right":22,"rightLabel":"AN"}, {"leftLabel":"J","left":20,"label":"Ju","right":22,"rightLabel":"Ju"}]
+
+[.] [{"leftLabel":"Xp","left":0,"label":"Xp","right":23,"rightLabel":"Xp"}, {"leftLabel":"RW","left":23,"label":"RW","right":24,"rightLabel":"RW"}]
+
+[RIGHT-WALL] [{"leftLabel":"RW","left":23,"label":"RW","right":24,"rightLabel":"RW"}]
+
+PARSE
+IsDeterminer [many] [{"leftLabel":"Dmc","left":1,"label":"Dmc","right":3,"rightLabel":"Dmc"}, {"leftLabel":"AN","left":1,"label":"AN","right":3,"rightLabel":"AN"}, {"leftLabel":"AN","left":1,"label":"AN","right":2,"rightLabel":"AN"}]
+IsNoun [membrane.n-u proteins.n] null
+[sense.v] [{"leftLabel":"hWV","left":0,"label":"WV","right":4,"rightLabel":"dWV"}, {"leftLabel":"Sp","left":3,"label":"Sp","right":4,"rightLabel":"Sp"}, {"leftLabel":"MV","left":4,"label":"MVp","right":10,"rightLabel":"MVp"}, {"leftLabel":"MV","left":4,"label":"MVp","right":7,"rightLabel":"MVp"}, {"leftLabel":"O","left":4,"label":"Ou","right":6,"rightLabel":"Ou"}, {"leftLabel":"O","left":4,"label":"Os","right":6,"rightLabel":"Os"}, {"leftLabel":"CV","left":4,"label":"CV","right":19,"rightLabel":"dCV"}, {"leftLabel":"Ce","left":4,"label":"Ce","right":6,"rightLabel":"C"}, {"leftLabel":"Bs","left":2,"label":"Bsd","right":4,"rightLabel":"B*d"}]
+IsDeterminer [the] [{"leftLabel":"D","left":5,"label":"Dmu","right":6,"rightLabel":"Dmu"}, {"leftLabel":"D","left":5,"label":"Ds**c","right":6,"rightLabel":"Ds**c"}]
+[voltage.n-u] [{"leftLabel":"O","left":4,"label":"Ou","right":6,"rightLabel":"Ou"}, {"leftLabel":"M","left":6,"label":"Mp","right":7,"rightLabel":"Mp"}, {"leftLabel":"D","left":5,"label":"Dmu","right":6,"rightLabel":"Dmu"}, {"leftLabel":"O","left":4,"label":"Os","right":6,"rightLabel":"Os"}, {"leftLabel":"D","left":5,"label":"Ds**c","right":6,"rightLabel":"Ds**c"}, {"leftLabel":"Ce","left":4,"label":"Ce","right":6,"rightLabel":"C"}, {"leftLabel":"Ss*s","left":6,"label":"Ss*s","right":18,"rightLabel":"Ss"}, {"leftLabel":"Ss","left":6,"label":"Ss","right":18,"rightLabel":"Ss"}, {"leftLabel":"M","left":6,"label":"Mp","right":10,"rightLabel":"Mp"}]
+[across] [{"leftLabel":"MV","left":4,"label":"MVp","right":7,"rightLabel":"MVp"}, {"leftLabel":"M","left":6,"label":"Mp","right":7,"rightLabel":"Mp"}, {"leftLabel":"J","left":7,"label":"Ju","right":9,"rightLabel":"Ju"}, {"leftLabel":"J","left":7,"label":"Js","right":9,"rightLabel":"Js"}, {"leftLabel":"J","left":7,"label":"Ju","right":15,"rightLabel":"Ju"}]
+IsDeterminer [the] [{"leftLabel":"D","left":8,"label":"Dmu","right":9,"rightLabel":"Dmu"}, {"leftLabel":"D","left":8,"label":"Ds**c","right":9,"rightLabel":"Ds**c"}]
+[membrane.n-u] [{"leftLabel":"J","left":7,"label":"Ju","right":9,"rightLabel":"Ju"}, {"leftLabel":"M","left":9,"label":"Mp","right":10,"rightLabel":"Mp"}, {"leftLabel":"D","left":8,"label":"Dmu","right":9,"rightLabel":"Dmu"}, {"leftLabel":"J","left":7,"label":"Js","right":9,"rightLabel":"Js"}, {"leftLabel":"D","left":8,"label":"Ds**c","right":9,"rightLabel":"Ds**c"}, {"leftLabel":"SJls","left":9,"label":"SJls","right":15,"rightLabel":"SJls"}, {"leftLabel":"SJlu","left":9,"label":"SJlu","right":15,"rightLabel":"SJlu"}, {"leftLabel":"Mp","left":9,"label":"Mp","right":10,"rightLabel":"Mp"}, {"leftLabel":"SJlp","left":9,"label":"SJlp","right":15,"rightLabel":"SJlp"}]
+[where] [{"leftLabel":"MV","left":4,"label":"MVp","right":10,"rightLabel":"MVp"}, {"leftLabel":"M","left":9,"label":"Mp","right":10,"rightLabel":"Mp"}, {"leftLabel":"CV","left":10,"label":"CV","right":13,"rightLabel":"CV"}, {"leftLabel":"Cs","left":10,"label":"Cs","right":11,"rightLabel":"C"}, {"leftLabel":"CV","left":10,"label":"CV","right":13,"rightLabel":"dCV"}, {"leftLabel":"Mp","left":9,"label":"Mp","right":10,"rightLabel":"Mp"}, {"leftLabel":"M","left":6,"label":"Mp","right":10,"rightLabel":"Mp"}, {"leftLabel":"CV","left":10,"label":"CV","right":12,"rightLabel":"dCV"}]
+[they] [{"leftLabel":"Cs","left":10,"label":"Cs","right":11,"rightLabel":"C"}, {"leftLabel":"Sp","left":11,"label":"Spx","right":12,"rightLabel":"Spx"}]
+IsVerb [are.v inserted.v-d ,] null
+[and.ij] [{"leftLabel":"Xx","left":0,"label":"Xx","right":15,"rightLabel":"Xx"}, {"leftLabel":"Xd","left":14,"label":"Xd","right":15,"rightLabel":"Xd"}, {"leftLabel":"hWV","left":15,"label":"WV","right":19,"rightLabel":"dWV"}, {"leftLabel":"Wdc","left":15,"label":"Wdc","right":17,"rightLabel":"Wd"}, {"leftLabel":"J","left":7,"label":"Ju","right":15,"rightLabel":"Ju"}, {"leftLabel":"SJls","left":9,"label":"SJls","right":15,"rightLabel":"SJls"}, {"leftLabel":"SJrs","left":15,"label":"SJrs","right":17,"rightLabel":"SJrs"}, {"leftLabel":"SJlu","left":9,"label":"SJlu","right":15,"rightLabel":"SJlu"}, {"leftLabel":"SJr","left":15,"label":"SJrp","right":17,"rightLabel":"SJrp"}, {"leftLabel":"SJr","left":15,"label":"SJru","right":17,"rightLabel":"SJru"}, {"leftLabel":"SJru","left":15,"label":"SJru","right":17,"rightLabel":"SJru"}, {"leftLabel":"SJlp","left":9,"label":"SJlp","right":15,"rightLabel":"SJlp"}]
+IsDeterminer [their.p] [{"leftLabel":"D","left":16,"label":"Dmu","right":17,"rightLabel":"Dmu"}, {"leftLabel":"D","left":16,"label":"Ds**c","right":17,"rightLabel":"Ds**c"}]
+[function.n-u] [{"leftLabel":"Wdc","left":15,"label":"Wdc","right":17,"rightLabel":"Wd"}, {"leftLabel":"D","left":16,"label":"Dmu","right":17,"rightLabel":"Dmu"}, {"leftLabel":"Ss","left":17,"label":"Ss","right":18,"rightLabel":"Ss"}, {"leftLabel":"D","left":16,"label":"Ds**c","right":17,"rightLabel":"Ds**c"}, {"leftLabel":"Ss*s","left":17,"label":"Ss*s","right":18,"rightLabel":"Ss"}, {"leftLabel":"SJrs","left":15,"label":"SJrs","right":17,"rightLabel":"SJrs"}, {"leftLabel":"SJr","left":15,"label":"SJrp","right":17,"rightLabel":"SJrp"}, {"leftLabel":"SJr","left":15,"label":"SJru","right":17,"rightLabel":"SJru"}, {"leftLabel":"SJru","left":15,"label":"SJru","right":17,"rightLabel":"SJru"}]
+IsVerb [is.v affected.v-d by] null
+IsNoun [voltage.n-u changes.n] null
+[.] [{"leftLabel":"Xp","left":0,"label":"Xp","right":23,"rightLabel":"Xp"}, {"leftLabel":"RW","left":23,"label":"RW","right":24,"rightLabel":"RW"}]

@@ -1,0 +1,53 @@
+Sentence
+Climate change is caused by CO2
+
+0 [LEFT-WALL] null b3b2ef47-ab5e-4c34-9def-76be56f4fc6d 
+[{"leftLabel":"RW","left":0,"label":"RW","right":7,"rightLabel":"RW"},
+{"leftLabel":"hWV","left":0,"label":"WV","right":4,"rightLabel":"dWV"},{"leftLabel":"hWd","left":0,"label":"Wd","right":2,"rightLabel":"Wd"}]
+
+1 [climate.n, Climate[!<CAPITALIZED-WORDS>]] 64ee459e-6d0e-4595-bee6-c2cb6f26678d bc899afa-00ad-4d1a-8699-e063fb506826
+[{"leftLabel":"AN","left":1,"label":"AN","right":2,"rightLabel":"AN"},
+	AN establishes a noun modifier between climate and change
+{"leftLabel":"dCOa","left":1,"label":"COa","right":2,"rightLabel":"hCO"}]
+	CO connects openers to subjects
+
+2 [change.n-u] b3b2ef47-ab5e-4c34-9def-76be56f4fc6d 4d3049bc-06af-47dc-8d77-c1f5b40c469d
+[{"leftLabel":"hWd","left":0,"label":"Wd","right":2,"rightLabel":"Wd"},
+{"leftLabel":"AN","left":1,"label":"AN","right":2,"rightLabel":"AN"},
+	AN establishes a noun modifier between climate and change
+	been there already
+{"leftLabel":"Ss","left":2,"label":"Ss","right":3,"rightLabel":"Ss"},
+	S connects a noun to a verb: change to is
+{"leftLabel":"dCOa","left":1,"label":"COa","right":2,"rightLabel":"hCO"}]
+	this is about CO again on climate and change
+
+3 [is.v] bc899afa-00ad-4d1a-8699-e063fb506826 edc40f51-074a-4ec3-a6be-e7b755267a4b
+[{"leftLabel":"Ss","left":2,"label":"Ss","right":3,"rightLabel":"Ss"},
+	Ss connects change to this verb is
+{"leftLabel":"Pv","left":3,"label":"Pv","right":4,"rightLabel":"Pv"}]
+	P connects "to be" to other words
+	Pv indicates passive participles -- this is a passive verb phrase
+
+4 [caused.v-d] 4d3049bc-06af-47dc-8d77-c1f5b40c469d 3ec734e3-73f6-4292-afd6-04f6d5d3d505
+[{"leftLabel":"hWV","left":0,"label":"WV","right":4,"rightLabel":"dWV"},
+{"leftLabel":"Pv","left":3,"label":"Pv","right":4,"rightLabel":"Pv"},
+	Pv is still connecting verbs: is caused
+{"leftLabel":"MV","left":4,"label":"MVp","right":5,"rightLabel":"MVp"}]
+	MV connects verbs to modifiers: caused by
+	So, we now have "is caused by" as a verb phrase
+
+5 [by] edc40f51-074a-4ec3-a6be-e7b755267a4b 98639b08-44cf-408e-8529-93e3a06d8e1f
+[{"leftLabel":"MV","left":4,"label":"MVp","right":5,"rightLabel":"MVp"},
+	MV repeats connection caused and by
+{"leftLabel":"J","left":5,"label":"Js","right":6,"rightLabel":"Js"}]
+	J connects prepositions to their objects by to CO2
+
+6 [CO2[!<CAPITALIZED-WORDS>]] 3ec734e3-73f6-4292-afd6-04f6d5d3d505 null
+[{"leftLabel":"J","left":5,"label":"Js","right":6,"rightLabel":"Js"}]
+	J connects prepositions to their objects by to CO2
+7 [RIGHT-WALL] null null
+[{"leftLabel":"RW","left":0,"label":"RW","right":7,"rightLabel":"RW"}]
+
+What we see here is a need to be able to assemble a verb phrase but remember
+its component offsets so that the interpreter can continue processing
+

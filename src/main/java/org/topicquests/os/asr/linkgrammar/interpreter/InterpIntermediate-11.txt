@@ -1,0 +1,51 @@
+Sentence: Because humans consume food, they can survive
+
+1 [because]
+[{"leftLabel":"dCO*s","left":1,"label":"CO*s","right":6,"rightLabel":"hCO"}, 
+ {"leftLabel":"Xc","left":1,"label":"Xc","right":5,"rightLabel":"Xc"}, 
+ {"leftLabel":"CV","left":1,"label":"CV","right":3,"rightLabel":"dCV"}, 
+ {"leftLabel":"Cs","left":1,"label":"Cs","right":2,"rightLabel":"C"}, 
+ {"leftLabel":"hWd","left":0,"label":"Wd","right":1,"rightLabel":"Wd"}, 
+ {"leftLabel":"Rnx","left":1,"label":"Rnx","right":2,"rightLabel":"Rn"}]
+
+2 [humans.n] 
+[{"leftLabel":"Cs","left":1,"label":"Cs","right":2,"rightLabel":"C"}, 
+ {"leftLabel":"Sp","left":2,"label":"Sp","right":3,"rightLabel":"Sp"}, 
+ {"leftLabel":"Rnx","left":1,"label":"Rnx","right":2,"rightLabel":"Rn"}, 
+ {"leftLabel":"Sp","left":2,"label":"Sp","right":5,"rightLabel":"Sp"}]
+
+3 [consume.v] 
+[{"leftLabel":"CV","left":1,"label":"CV","right":3,"rightLabel":"dCV"}, 
+ {"leftLabel":"Sp","left":2,"label":"Sp","right":3,"rightLabel":"Sp"}, 
+ {"leftLabel":"O","left":3,"label":"Ou","right":4,"rightLabel":"Ou"}, 
+ {"leftLabel":"VJlp","left":3,"label":"VJlpi","right":5,"rightLabel":"VJlpi"}, 
+ {"leftLabel":"hWV","left":0,"label":"WV","right":3,"rightLabel":"dWV"}]
+
+4 [food.n-u] 
+[{"leftLabel":"O","left":3,"label":"Ou","right":4,"rightLabel":"Ou"}]
+
+5 [,] 
+[{"leftLabel":"Xc","left":1,"label":"Xc","right":5,"rightLabel":"Xc"}, 
+ {"leftLabel":"hWV","left":0,"label":"WV","right":5,"rightLabel":"dWV"}, 
+ {"leftLabel":"Sp","left":2,"label":"Sp","right":5,"rightLabel":"Sp"}, 
+ {"leftLabel":"VJlp","left":3,"label":"VJlpi","right":5,"rightLabel":"VJlpi"}, 
+ {"leftLabel":"VJrpi","left":5,"label":"VJrpi","right":8,"rightLabel":"VJrpi"}, 
+ {"leftLabel":"Xx","left":0,"label":"Xx","right":5,"rightLabel":"Xx"}, 
+ {"leftLabel":"hWV","left":5,"label":"WV","right":8,"rightLabel":"dWV"}, 
+ {"leftLabel":"hWd","left":5,"label":"Wd","right":6,"rightLabel":"Wd"}]
+
+6 [they] 
+[{"leftLabel":"hWd","left":0,"label":"Wd","right":6,"rightLabel":"Wd"}, 
+ {"leftLabel":"dCO*s","left":1,"label":"CO*s","right":6,"rightLabel":"hCO"}, 
+ {"leftLabel":"Sp","left":6,"label":"Sp","right":7,"rightLabel":"Sp"}, 
+ {"leftLabel":"hWd","left":5,"label":"Wd","right":6,"rightLabel":"Wd"}]
+
+7 [can.v] 
+[{"leftLabel":"Sp","left":6,"label":"Sp","right":7,"rightLabel":"Sp"}, 
+{"leftLabel":"I","left":7,"label":"I","right":8,"rightLabel":"I"}]
+
+8 [survive.v] 
+[{"leftLabel":"hWV","left":0,"label":"WV","right":8,"rightLabel":"dWV"}, 
+ {"leftLabel":"I","left":7,"label":"I","right":8,"rightLabel":"I"}, 
+ {"leftLabel":"VJrpi","left":5,"label":"VJrpi","right":8,"rightLabel":"VJrpi"}, 
+ {"leftLabel":"hWV","left":5,"label":"WV","right":8,"rightLabel":"dWV"}]
