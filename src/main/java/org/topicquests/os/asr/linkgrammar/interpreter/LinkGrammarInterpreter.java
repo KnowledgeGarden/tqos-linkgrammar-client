@@ -101,6 +101,8 @@ public class LinkGrammarInterpreter {
 		cursor = 0;
 		isFirstParse = true;
 		IResult result = new ResultPojo();
+		JSONObject ro = new JSONObject();
+		result.setResultObject(ro);
 		IResult r;
 		try {
 			
@@ -119,15 +121,15 @@ public class LinkGrammarInterpreter {
 			Feature f;
 			int left, right;
 			//For all the links in linkages
-			for (int i=0; i<len;i++){
-				parse = (JSONObject)linkages.get(i);
+			//for (int i=0; i<len;i++){
+				parse = (JSONObject)linkages.get(0);
 				links = (List<JSONObject>)parse.get("links");
-				if (i == 0) {
+				//if (i == 0) {
 					words = (List<String>)parse.get("words");
 					features.startFeatures(words.size());
 					for (int j=0;j<words.size();j++)
 						features.addFeature(words.get(j), -1);
-				}
+				//}
 				
 				litr = links.iterator();
 				while (litr.hasNext()) {
@@ -139,7 +141,7 @@ public class LinkGrammarInterpreter {
 					f = features.getFeature(right);
 					f.addLink(lnk);
 				}
-			}
+			//}
 			//Diagnostic - print out all the features
 			Feature [] ftrs = this.features.getFeatures();
 			System.out.println("");
